@@ -5,6 +5,7 @@ services:
       build: .
       image: rails_survey/web:latest
       container_name: rails_survey-web
+      command: bash -c "puma"
       ports:
          - 8080:8080
       volumes:
