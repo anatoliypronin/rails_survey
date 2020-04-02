@@ -1,8 +1,24 @@
-# rails_survey
-Сервис "Анкетирование"
+# README
 
-Команда: Аблязов Пётр, Макиенко Александр, Медведева Антонида, Кунин Михаил
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-Сервис должен проводить анкетирование/соц.опросы по различным темам. Продумать админку для администрирования всех опросов в системе. Каждый человек может поучаствовать в любом соц.опросе только 1 раз. Соц.опросы могут быть на различные темы. Можно продумать рекомендации составителям опросов по результатам.
+Things you may want to cover:
 
-Link to folder: https://drive.google.com/open?id=1VSIfrMIvMuWjUDySuBs0M12uljbhYiuR
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
