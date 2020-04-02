@@ -3,7 +3,7 @@ version: '3'
 services:
    web:
       build: .
-      image: rails_survey/web
+      image: rails_survey/web:latest
       container_name: rails_survey-web
       ports:
          - 8080:8080
