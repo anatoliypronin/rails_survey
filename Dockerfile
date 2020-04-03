@@ -9,9 +9,9 @@ RUN mkdir -p /app && \
   echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
   apt-get install -y nodejs && \
   npm install webpack yarn -g
-#RUN gem install rails 
+
 RUN bundle install --jobs 4 --no-binstubs && \
-  yarn install --check-files && \
+  yarn install && \
   bin/rake assets:precompile NODE_ENV=production RAILS_ENV=production && \
   bin/rake webpacker:compile NODE_ENV=production RAILS_ENV=production
 
