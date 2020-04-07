@@ -15,6 +15,6 @@ FactoryBot.define do
     "string#{n}"
   end
   sequence :phone do |n|
-    8900000000 + n
+    n
   end
 end

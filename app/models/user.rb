@@ -6,8 +6,7 @@ class User < ApplicationRecord
   validates :last_name, presence: true,
                         length: { minimum: 2 }
 
-  state_machine :initial => :registration do
-
+  state_machine initial: :registration do
     event :archived do
       transition [:registration] => :archived
     end
@@ -15,6 +14,5 @@ class User < ApplicationRecord
     event :restore do
       transition [:archived] => :registration
     end
-
   end
 end
