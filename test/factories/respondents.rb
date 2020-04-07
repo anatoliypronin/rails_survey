@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :admin do
+  factory :respondent do
     first_name
     last_name
     phone
