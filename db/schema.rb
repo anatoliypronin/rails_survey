@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_183016) do
+ActiveRecord::Schema.define(version: 2020_04_07_184325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "tags_users", id: false, force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tag_id", null: false
+    t.index ["tag_id"], name: "index_tags_users_on_tag_id"
+    t.index ["user_id"], name: "index_tags_users_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name"
