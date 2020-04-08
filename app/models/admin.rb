@@ -3,5 +3,5 @@ class Admin < User
 
   validates :email,  presence: true,
                      uniqueness: { case_sensitive: false },
-                     format: { with: /.*@.*/, message: "doesn't contein sym @" }
+                     email: true
 end
