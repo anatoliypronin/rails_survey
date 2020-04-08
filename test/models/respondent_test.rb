@@ -5,4 +5,10 @@ class RespondentTest < ActiveSupport::TestCase
     respondent = build :respondent, phone: nil
     assert_not respondent.save
   end
+
+  test "should respondent create" do
+    create :respondent
+    created_respondent = Respondent.last
+    assert created_respondent
+  end
 end
