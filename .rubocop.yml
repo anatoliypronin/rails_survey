@@ -29,6 +29,9 @@ Style/HashTransformKeys:
 Style/HashTransformValues:
   Enabled: true
 
+Style/StringLiterals:
+  Enabled: false
+
 Metrics/ClassLength:
   Max: 200
 
