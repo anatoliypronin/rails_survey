@@ -14,7 +14,7 @@ FactoryBot.define do
   sequence :string do |n|
     "string#{n}"
   end
-  sequence :phone do |n|
-    (n + 10000000000).to_s
+  sequence :phone, 10000000000 do |n|
+    "#{n}"
   end
 end

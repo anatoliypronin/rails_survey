@@ -7,6 +7,9 @@ class User < ApplicationRecord
                         length: { minimum: 2 }
 
   state_machine initial: :registration do
+    state :registration
+    state :archived
+
     event :archived do
       transition [:registration] => :archived
     end
