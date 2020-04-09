@@ -1,6 +1,6 @@
 class Question < ApplicationRecord
   validates :title, presence: true
   validates :position, presence: true
-  validates :question_kind, presence: true
-  validates :question_kind, inclusion: { in: %w[CheckBox RadioButton Input] }
+  validates :kind, presence: true
+  validates :kind, inclusion: { in: %w[check_box radio_button input] }
 end
