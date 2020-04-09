@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :question do
-    title { "title" }
-    position { 1 }
-    kind { 'input' }
+    title
+    position
+    kind { "input" }
   end
 end

@@ -1,6 +1,7 @@
 class Question < ApplicationRecord
+  extend Enumerize
   validates :title, presence: true
   validates :position, presence: true
   validates :kind, presence: true
-  validates :kind, inclusion: { in: %w[check_box radio_button input] }
+  enumerize :kind, in: [:check_box, :radio_button, :input], default: :input
 end
