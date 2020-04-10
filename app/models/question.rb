@@ -3,5 +3,5 @@ class Question < ApplicationRecord
   validates :title, presence: true
   validates :position, presence: true
   validates :kind, presence: true
-  enumerize :kind, in: [:check_box, :radio_button, :input], default: :input
+  enumerize :kind, in: %i[check_box radio_button input], default: :input
 end
