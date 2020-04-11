@@ -33,8 +33,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b0e37e49-58fb-421f-86a9-f907c4d50b43" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/survey.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/survey.rb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models/tag.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/tag.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/schema.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/schema.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db/migrate/20200411090408_create_surveys.rb" beforeDir="false" afterPath="$PROJECT_DIR$/db/migrate/20200411090408_create_surveys.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/factories/sequences.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/factories/sequences.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/factories/surveys.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/factories/surveys.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/survey_test.rb" beforeDir="false" afterPath="$PROJECT_DIR$/test/models/survey_test.rb" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +184,7 @@
       <workItem from="1586547551607" duration="3134000" />
       <workItem from="1586550793532" duration="677000" />
       <workItem from="1586551736246" duration="653000" />
-      <workItem from="1586589919305" duration="10654000" />
+      <workItem from="1586589919305" duration="17888000" />
     </task>
     <servers />
   </component>
@@ -216,13 +220,21 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="841" y="271" width="739" height="413" key="MultipleFileMergeDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1586550968363" />
+    <state x="555" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2" timestamp="1586612136397">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="555" y="288" width="800" height="528" key="Vcs.Push.Dialog.v2/0.27.1920.1053@0.27.1920.1053" timestamp="1586612136397" />
     <state x="921" y="186" width="539" height="612" key="git4idea.branch.GitSmartOperationDialog" timestamp="1586550326378">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="921" y="186" width="539" height="612" key="git4idea.branch.GitSmartOperationDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1586550326378" />
-    <state x="612" y="482" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1586611012748">
+    <state x="1137" y="311" width="672" height="678" key="search.everywhere.popup" timestamp="1586614290914">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state x="612" y="482" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1586611012748" />
+    <state x="1137" y="311" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1586614290914" />
+    <state x="612" y="482" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1586619813830">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="612" y="482" width="540" height="172" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1586619813830" />
   </component>
 </project>

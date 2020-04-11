@@ -2,11 +2,12 @@ class Survey < ApplicationRecord
   has_many :tag, dependent: :destroy
   # belongs_to :user
   validates :title, presence: true
+  validates :author, presence: true
   state_machine initial: :active do
     state :active
     state :deleted
     state :close
-    state :open
+    state :opened
 
     event :del do
       transition active: :deleted
@@ -16,11 +17,11 @@ class Survey < ApplicationRecord
       transition deleted: :active
     end
     event :close do
-      transition open: :close
+      transition opened: :close
     end
 
-    event :open do
-      transition close: :open
+    event :opened do
+      transition close: :opened
     end
   end
 end

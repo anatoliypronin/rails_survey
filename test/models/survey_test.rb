@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class SurveyTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "should be create survey with user and tag" do
+    survey = create :survey
+    p survey
+    assert survey
+    
+  end
 end

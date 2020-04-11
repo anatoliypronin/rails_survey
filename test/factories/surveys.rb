@@ -1,9 +1,9 @@
 FactoryBot.define do
   factory :survey do
-    title { "MyString" }
+    title
     public { false }
     tag { nil }
-    author 
+    author
     state { "MyString" }
   end
 end

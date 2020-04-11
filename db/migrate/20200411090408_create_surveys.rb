@@ -4,7 +4,7 @@ class CreateSurveys < ActiveRecord::Migration[6.0]
       t.string :title
       t.boolean :public
       t.references :tag, null: false, foreign_key: true
-      t.string :author, null: false
+      t.string :author
       t.string :state
 
       t.timestamps
