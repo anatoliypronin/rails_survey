@@ -6,10 +6,10 @@ class User < ApplicationRecord
 
   state_machine initial: :registration do
     state :registration
-    state :archived
+    state :archive
 
-    event :archived do
-      transition [:registration] => :archived
+    event :in_archive do
+      transition [:registration] => :archive
     end
 
     event :restore do
