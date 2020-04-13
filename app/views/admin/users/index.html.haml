@@ -1,1 +1,17 @@
-= @users
+%table
+  %tr
+    %td ID
+    %td First name
+    %td Last name
+    %td Type
+    %td Email
+    %td Phone
+  - @users.each do |user|
+    %tr
+      %td= user.id
+      %td= user.first_name
+      %td= user.last_name
+      %td= user.type
+      %td= user.email
+      %td= user.phone
+
