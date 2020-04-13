@@ -14,9 +14,9 @@ class AdminTest < ActiveSupport::TestCase
     assert_not admin.save
   end
 
-  test "should transite state to archived" do
+  test "should transite state to archive" do
     admin = create :admin
-    admin.archived
-    assert_equal admin.state, 'archived'
+    admin.in_archive
+    assert_equal admin.state, 'archive'
   end
 end
