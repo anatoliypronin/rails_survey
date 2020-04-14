@@ -11,14 +11,24 @@ class Admin::UsersController < Admin::ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(send("#{@user.type.downcase}_attrs"))
+      redirect_to action: :index
+    else
+      render action: :edit
+    end
+  end
+
   private
 
   def respondent_attrs
-    params.require(:user).permit(:first_name, :last_name, :phone)
+    params.require(:respondent).permit(:first_name, :last_name, :phone)
   end
   
   def admin_attrs
-    params.require(:user).permit(:first_name, :last_name, :email, :phone, :password)
+    params.require(:admin).permit(:first_name, :last_name, :email, :password)
   end
   
 
