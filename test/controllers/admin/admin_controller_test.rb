@@ -24,21 +24,18 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should get edit respondent page' do
     respondent = create :respondent
-    
     get edit_admin_user_path(respondent)
     assert_response :success
   end
 
   test 'should get edit admin page' do
     admin = create :admin
-    
     get edit_admin_user_path(admin)
     assert_response :success
   end
 
   test 'should put update admin page' do
     admin = create :admin
-    
     attrs = {}
     attrs[:email] = generate :email
 
@@ -51,7 +48,6 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
 
   test 'should put update respondent page' do
     respondent = create :respondent
-    
     attrs = {}
     attrs[:phone] = generate :phone
 
@@ -61,5 +57,4 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     respondent.reload
     assert_equal attrs[:phone], respondent.phone
   end
-
 end

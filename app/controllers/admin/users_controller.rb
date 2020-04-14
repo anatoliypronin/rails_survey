@@ -26,10 +26,8 @@ class Admin::UsersController < Admin::ApplicationController
   def respondent_attrs
     params.require(:respondent).permit(:first_name, :last_name, :phone)
   end
-  
+
   def admin_attrs
     params.require(:admin).permit(:first_name, :last_name, :email, :password)
   end
-  
-
 end
