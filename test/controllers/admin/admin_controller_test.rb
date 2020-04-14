@@ -21,4 +21,19 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     get admin_user_path(respondent)
     assert_response :success
   end
+
+  test 'should get edit respondent page' do
+    respondent = create :respondent
+    
+    get edit_admin_user_path(respondent)
+    assert_response :success
+  end
+
+  test 'should get edit admin page' do
+    admin = create :admin
+    
+    get edit_admin_user_path(admin)
+    assert_response :success
+  end
+
 end

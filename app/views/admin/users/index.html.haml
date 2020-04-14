@@ -8,7 +8,7 @@
     %td Phone
   - @users.each do |user|
     %tr
-      %td= user.id
+      %td= link_to user.id, admin_user_path(user.id)
       %td= user.first_name
       %td= user.last_name
       %td= user.type
