@@ -5,7 +5,7 @@ class QuestionTest < ActiveSupport::TestCase
     question = build :question
     question.save
     created_question = Question.last
-    assert created_question.persisted?
+    assert created_question
   end
 
   test "should not create question with empty title" do
