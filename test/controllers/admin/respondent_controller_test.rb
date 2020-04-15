@@ -15,4 +15,14 @@ class Admin::RespondentsControllerTest < ActionDispatch::IntegrationTest
     respondent = Respondent.last
     assert_equal respondent.phone, attrs[:phone]
   end
+
+  test 'should post not create respondent' do
+    attrs = attributes_for(:respondent, phone: nil)
+
+    post admin_respondents_path, params: { respondent: attrs }
+    assert_response :success
+
+    respondent = Respondent.find_by(phone: attrs[:phone])
+    assert_nil respondent
+  end
 end
