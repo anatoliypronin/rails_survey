@@ -1,7 +1,6 @@
 class Tag < ApplicationRecord
   extend Enumerize
-  # belongs_to :user
-  belongs_to :survey
+  has_many :tag_surveys, dependent: :destroy
+  has_many :surveys, through: :tag_surveys
   validates :title, presence: true
-  
 end
