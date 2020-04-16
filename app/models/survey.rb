@@ -8,7 +8,7 @@ class Survey < ApplicationRecord
     state :active
     state :deleted
     state :close
-    state :opened
+    state :to_open
 
     event :del do
       transition active: :deleted
