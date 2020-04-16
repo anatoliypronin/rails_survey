@@ -1,3 +1,5 @@
+= link_to 'Add Admin', new_admin_admin_path
+= link_to 'Add Respondent', new_admin_respondent_path
 %table
   %tr
     %td ID
@@ -6,6 +8,7 @@
     %td Type
     %td Email
     %td Phone
+    %td State
     %td Action
   - @users.each do |user|
     %tr
@@ -15,5 +18,8 @@
       %td= user.type
       %td= user.email
       %td= user.phone
-      %td= link_to 'Edit', edit_admin_user_path(user.id)
-
+      %td= user.state
+      %td
+        = link_to 'Edit', edit_admin_user_path(user.id)
+        = link_to 'In Archive', in_archive_admin_user_path(user.id), method: :put
+        = link_to 'Restore', restore_admin_user_path(user.id), method: :put

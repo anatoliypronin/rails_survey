@@ -21,13 +21,25 @@ class Admin::UsersController < Admin::ApplicationController
     end
   end
 
+  def in_archive
+    user = User.find(params[:id])
+    user.in_archive
+    redirect_to action: :index
+  end
+
+  def restore
+    user = User.find(params[:id])
+    user.restore
+    redirect_to action: :index
+  end
+
   private
 
   def respondent_attrs
-    params.require(:respondent).permit(:first_name, :last_name, :phone)
+    params.require(:respondent).permit(:first_name, :last_name, :state_event, :phone)
   end
 
   def admin_attrs
-    params.require(:admin).permit(:first_name, :last_name, :email, :password)
+    params.require(:admin).permit(:first_name, :last_name, :email, :state_event, :password)
   end
 end

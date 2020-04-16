@@ -57,4 +57,46 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
     respondent.reload
     assert_equal attrs[:phone], respondent.phone
   end
+
+  test 'should put in_archive admin page' do
+    admin = create :admin
+
+    put in_archive_admin_user_path(admin)
+    assert_response :redirect
+
+    admin.reload
+    assert_equal admin.state, 'archive'
+  end
+
+  test 'should put in_archive respondent page' do
+    respondent = create :respondent
+
+    put in_archive_admin_user_path(respondent)
+    assert_response :redirect
+
+    respondent.reload
+    assert_equal respondent.state, 'archive'
+  end
+
+  test 'should put restore respondent page' do
+    respondent = create :respondent
+    respondent.in_archive
+    assert_equal respondent.state, 'archive'
+    put restore_admin_user_path(respondent)
+    assert_response :redirect
+
+    respondent.reload
+    assert_equal respondent.state, 'registration'
+  end
+
+  test 'should put restore admin page' do
+    admin = create :admin
+    admin.in_archive
+    assert_equal admin.state, 'archive'
+    put restore_admin_user_path(admin)
+    assert_response :redirect
+
+    admin.reload
+    assert_equal admin.state, 'registration'
+  end
 end
