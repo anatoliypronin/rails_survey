@@ -18,7 +18,7 @@ class Survey < ApplicationRecord
       transition deleted: :active
     end
     event :close do
-      transition opened: :close
+      transition to_open: :close
     end
 
     event :opened do
