@@ -13,7 +13,7 @@ class User < ApplicationRecord
     end
 
     event :restore do
-      transition [:archived] => :registration
+      transition [:archive] => :registration
     end
   end
 end
