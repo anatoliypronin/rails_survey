@@ -7,8 +7,8 @@ class Survey < ApplicationRecord
   state_machine initial: :active do
     state :active
     state :deleted
-    state :close
-    state :to_open
+    state :closed
+    state :opened
 
     event :del do
       transition active: :deleted
@@ -18,11 +18,11 @@ class Survey < ApplicationRecord
       transition deleted: :active
     end
     event :close do
-      transition to_open: :close
+      transition opened: :closed
     end
 
-    event :opened do
-      transition close: :opened
+    event :to_open do
+      transition closed: :opened
     end
   end
 end
