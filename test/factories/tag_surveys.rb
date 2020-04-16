@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :tag_survey do
-    survey 
+    survey
     tag
   end
 end
