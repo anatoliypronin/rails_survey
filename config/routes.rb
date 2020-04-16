@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :users, only: %i[index show edit update] do
       member do
-        put 'in_archive', to: 'users#in_archive'
-        put 'restore', to: 'users#restore'
+        put 'in_archive'
+        put 'restore'
       end
     end
     resources :admins, only: %i[new create]

@@ -13,8 +13,8 @@ class Admin::UsersController < Admin::ApplicationController
 
   def update
     @user = User.find(params[:id])
-
-    if @user.update(send("#{@user.type.downcase}_attrs"))
+    user_attrs = "#{@user.type.downcase}_attrs"
+    if @user.update(send(user_attrs))
       redirect_to action: :index
     else
       render action: :edit
