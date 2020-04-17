@@ -1,15 +1,15 @@
 = link_to 'Add Admin', new_admin_admin_path
 = link_to 'Add Respondent', new_admin_respondent_path
-%table
+%table.table.table-hover
   %tr
-    %td ID
-    %td First name
-    %td Last name
-    %td Type
-    %td Email
-    %td Phone
-    %td State
-    %td Action
+    %th ID
+    %th First name
+    %th Last name
+    %th Type
+    %th Email
+    %th Phone
+    %th State
+    %th Action
   - @users.each do |user|
     %tr
       %td= link_to user.id, admin_user_path(user.id)
