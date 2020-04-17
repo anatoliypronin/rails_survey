@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class OtherFieldTest < ActiveSupport::TestCase
   test "should create other_field" do
@@ -10,5 +10,5 @@ class OtherFieldTest < ActiveSupport::TestCase
   test "sould title presence" do
     other_field = build :other_field, title: nil
     assert_not other_field.save
-  end 
+  end
 end

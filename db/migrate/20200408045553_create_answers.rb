@@ -4,7 +4,6 @@ class CreateAnswers < ActiveRecord::Migration[6.0]
       t.belongs_to :question, null: false
       t.belongs_to :variant
       t.string :title
-      t.integer :variant_id
       t.string :type, null: false
       t.timestamps
     end

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ChoiceFieldTest < ActiveSupport::TestCase
   test "should create choise_field" do
@@ -10,4 +10,5 @@ class ChoiceFieldTest < ActiveSupport::TestCase
   test "should variant_id pesence" do
     choise_field = build :choise_field, variant_id: nil
     assert_not choise_field.save
+  end
 end
