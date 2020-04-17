@@ -7,7 +7,4 @@ FactoryBot.define do
   end
 
   sequence :phone, 10000000000, &:to_s
-  sequence :title do |n|
-    "Title-#{n}"
-  end
 end
