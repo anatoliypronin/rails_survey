@@ -23,7 +23,9 @@ gem 'jbuilder', '~> 2.7'
 gem 'bcrypt', '~> 3.1.7'
 gem 'email_validator'
 gem 'enumerize'
+gem "haml-rails", "~> 2.0"
 gem 'pg'
+gem 'simple_form'
 gem 'state_machines-activerecord'
 
 # Use Active Storage variant
