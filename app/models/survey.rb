@@ -3,7 +3,6 @@ class Survey < ApplicationRecord
   # has_many :tag_surveys, dependent: :destroy
   # belongs_to :user
   validates :title, presence: true
-  validates :author, presence: true
   state_machine initial: :active do
     state :active
     state :deleted
