@@ -8,9 +8,9 @@ class TagTest < ActiveSupport::TestCase
     assert created_tag
   end
   test "should not create tag with empty title" do
-   tag = build :tag, title: nil
-   tag.save
-   created_tag = Tag.last
-   assert_nil created_tag
- end
+    tag = build :tag, title: nil
+    tag.save
+    created_tag = Tag.last
+    assert_nil created_tag
+  end
 end
