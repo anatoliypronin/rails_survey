@@ -17,13 +17,11 @@ ActiveRecord::Schema.define(version: 2020_04_08_045553) do
 
   create_table "answers", force: :cascade do |t|
     t.bigint "question_id", null: false
-    t.bigint "variant_id"
     t.string "title"
     t.string "type", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
-    t.index ["variant_id"], name: "index_answers_on_variant_id"
   end
 
   create_table "questions", force: :cascade do |t|
@@ -49,4 +47,5 @@ ActiveRecord::Schema.define(version: 2020_04_08_045553) do
     t.index ["phone"], name: "index_users_on_phone", unique: true
   end
 
+  add_foreign_key "answers", "questions"
 end

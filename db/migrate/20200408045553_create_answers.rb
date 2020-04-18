@@ -1,8 +1,8 @@
 class CreateAnswers < ActiveRecord::Migration[6.0]
   def change
     create_table :answers do |t|
-      t.belongs_to :question, null: false
-      t.belongs_to :variant
+      t.references :question, null: false, foreign_key: true
+      #t.belongs_to :variant
       t.string :title
       t.string :type, null: false
       t.timestamps
