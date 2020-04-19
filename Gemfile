@@ -25,6 +25,7 @@ gem 'bootstrap', '~> 4.4.1'
 gem 'email_validator'
 gem 'enumerize'
 gem "haml-rails", "~> 2.0"
+gem 'jquery-rails'
 gem 'pg'
 gem 'simple_form'
 gem 'state_machines-activerecord'
