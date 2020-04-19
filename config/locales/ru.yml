@@ -1,0 +1,13 @@
+ru:
+  id: 'Индификатор'
+  first_name: 'Имя'
+  last_name: 'Фамилия'
+
+  admin:
+    users:
+      index:
+        type: Тип
+        email: E-mail
+        phone: Телефона
+        state: Состояние
+        control: Управление

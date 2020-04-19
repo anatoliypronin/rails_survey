@@ -2,14 +2,14 @@
 = link_to 'Add Respondent', new_admin_respondent_path
 %table.table.table-hover
   %tr
-    %th ID
-    %th First name
-    %th Last name
-    %th Type
-    %th Email
-    %th Phone
-    %th State
-    %th Action
+    %th= I18n.t('.id')
+    %th= t('.first_name')
+    %th= t('last_name')
+    %th= t('.type')
+    %th= t('.email')
+    %th= t('.phone')
+    %th= t('.state')
+    %th= t('.control')
   - @users.each do |user|
     %tr
       %td= link_to user.id, admin_user_path(user.id)
