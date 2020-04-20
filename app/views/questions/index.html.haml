@@ -1,0 +1,12 @@
+%table
+  %tr
+    %td Идентификатор
+    %td Название
+    %td Позиция
+    %td Тип
+  - @questions.each do |question|
+    %tr
+      %td= question.id
+      %td= question.title
+      %td= question.position
+      %td= question.kind

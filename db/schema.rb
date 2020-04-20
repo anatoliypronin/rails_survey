@@ -10,38 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_045553) do
+ActiveRecord::Schema.define(version: 2020_04_20_191720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-
-  create_table "surveys", force: :cascade do |t|
-    t.string "title"
-    t.boolean "public"
-    t.string "state"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "tag_surveys", force: :cascade do |t|
-    t.bigint "survey_id", null: false
-    t.bigint "tag_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["survey_id", "tag_id"], name: "index_tag_surveys_on_survey_id_and_tag_id"
-    t.index ["survey_id"], name: "index_tag_surveys_on_survey_id"
-    t.index ["tag_id"], name: "index_tag_surveys_on_tag_id"
-  end
-
-  create_table "tags", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  add_foreign_key "tag_surveys", "surveys"
-  add_foreign_key "tag_surveys", "tags"
 
   create_table "answers", force: :cascade do |t|
     t.bigint "question_id", null: false
@@ -56,6 +28,32 @@ ActiveRecord::Schema.define(version: 2020_04_08_045553) do
     t.string "title", null: false
     t.integer "position", null: false
     t.string "kind", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "survey_id", null: false
+    t.index ["survey_id"], name: "index_questions_on_survey_id"
+  end
+
+  create_table "surveys", force: :cascade do |t|
+    t.string "title", null: false
+    t.boolean "public"
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "tag_surveys", force: :cascade do |t|
+    t.bigint "survey_id", null: false
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["survey_id", "tag_id"], name: "index_tag_surveys_on_survey_id_and_tag_id", unique: true
+    t.index ["survey_id"], name: "index_tag_surveys_on_survey_id"
+    t.index ["tag_id"], name: "index_tag_surveys_on_tag_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -76,4 +74,7 @@ ActiveRecord::Schema.define(version: 2020_04_08_045553) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "surveys"
+  add_foreign_key "tag_surveys", "surveys"
+  add_foreign_key "tag_surveys", "tags"
 end
