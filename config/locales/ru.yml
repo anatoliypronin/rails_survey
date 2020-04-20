@@ -1,18 +1,24 @@
 ru:
   id: 'Индификатор'
-  first_name: 'Имя'
-  last_name: 'Фамилия'
 
   admin:
     users:
       index:
-        type: Тип
-        email: E-mail
-        phone: Телефона
-        state: Состояние
         control: Управление
+        edit: Редактировать
+        in_archive: В архив
+        restore: Восстановить
   
   activerecord:
+    state_machines:
+      user:
+        state:
+          states:
+            registration: Зарегистрированный
+            archive: Архивный
+          events:
+            in_archive: В архив
+            restore: Восстановить
     models:
       user:
         one: Пользователь
@@ -20,16 +26,16 @@ ru:
       admin:
         one: Админ
         other: Админы
+      respondent:
+        one: Респондент
+        other: Респонденты
     
     attributes:
-      admin:
-        first_name: Имя
-        last_name: Фамилия
-        email: E-mail
-        password: Пароль
-      respondent:
+      user:
         first_name: Имя
         last_name: Фамилия
         email: E-mail
         password: Пароль
         phone: Телефон
+        type: Тип пользователя
+        state: Состояние

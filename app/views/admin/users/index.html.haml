@@ -3,23 +3,25 @@
 %table.table.table-hover
   %tr
     %th= I18n.t('id')
-    %th= t('first_name')
-    %th= t('last_name')
-    %th= t('.type')
-    %th= t('.email')
-    %th= t('.phone')
-    %th= t('.state')
+    %th= User.human_attribute_name(:first_name)
+    %th= User.human_attribute_name(:last_name)
+    %th= User.human_attribute_name(:type)
+    %th= User.human_attribute_name(:email)
+    %th= User.human_attribute_name(:phone)
+    %th= User.human_attribute_name(:state)
     %th= t('.control')
   - @users.each do |user|
     %tr
-      %td= link_to user.id, admin_user_path(user.id)
+      %td= link_to user.id, admin_user_path(user.id), target: :_blank
       %td= user.first_name
       %td= user.last_name
       %td= user.type
       %td= user.email
       %td= user.phone
-      %td= user.state
+      %td= user.human_state_name
       %td
-        = link_to 'Edit', edit_admin_user_path(user.id)
-        = link_to 'In Archive', in_archive_admin_user_path(user.id), method: :put
-        = link_to 'Restore', restore_admin_user_path(user.id), method: :put
+        = link_to t('.edit'), edit_admin_user_path(user.id)
+        %br
+        = link_to t('.in_archive'), in_archive_admin_user_path(user.id), method: :put
+        %br
+        = link_to t('.Restore'), restore_admin_user_path(user.id), method: :put
