@@ -1,0 +1,2 @@
+class ChoiceField < Answer
+end
