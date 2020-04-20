@@ -1,3 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  namespace :admin do
+    resources :users, only: %i[index show edit update] do
+      member do
+        put 'in_archive'
+        put 'restore'
+      end
+    end
+    resources :admins, only: %i[new create]
+    resources :respondents, only: %i[new create]
+  end
 end

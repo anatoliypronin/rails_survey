@@ -2,4 +2,13 @@ FactoryBot.define do
   sequence :string, aliases: [:title, :author] do |n|
     "String-#{n}"
   end
+  
+  sequence(:string, aliases: %i[first_name last_name password title type]) { |n| "string#{n}" }
+  sequence(:position) { |n| n }
+
+  sequence :email do |n|
+    "email#{n}@factory.com"
+  end
+
+  sequence :phone, 10000000000, &:to_s
 end

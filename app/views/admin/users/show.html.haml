@@ -1,0 +1,11 @@
+%h1= "Show #{@user.type}"
+
+%b First name 
+= @user.first_name
+%br
+%b Last name 
+= @user.last_name
+%br
+= render partial: @user.type.downcase
+%br
+= link_to 'Edit', edit_admin_user_path(@user)
