@@ -1,13 +1,17 @@
 ru:
-  id: 'Индификатор'
+  id: ID
+
+  header:
+    homepage: Домашняя страница
+    admin_title: Админка анкетирования
 
   admin:
     users:
       index:
         control: Управление
         edit: Редактировать
-        in_archive: В архив
-        restore: Восстановить
+        add_admin: Добавить Админ
+        add_respondent: Добавить Респондент
   
   activerecord:
     state_machines:

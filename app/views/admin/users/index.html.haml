@@ -1,14 +1,15 @@
-= link_to 'Add Admin', new_admin_admin_path
-= link_to 'Add Respondent', new_admin_respondent_path
+= link_to t('.add_admin'), new_admin_admin_path, class: 'btn btn-info'
+= link_to t('.add_respondent'), new_admin_respondent_path, class: 'btn btn-info'
+
 %table.table.table-hover
   %tr
-    %th= I18n.t('id')
-    %th= User.human_attribute_name(:first_name)
-    %th= User.human_attribute_name(:last_name)
-    %th= User.human_attribute_name(:type)
-    %th= User.human_attribute_name(:email)
-    %th= User.human_attribute_name(:phone)
-    %th= User.human_attribute_name(:state)
+    %th= t('id')
+    %th= han(:user, :first_name)
+    %th= han(:user, :last_name)
+    %th= han(:user,:type)
+    %th= han(:user,:email)
+    %th= han(:user,:phone)
+    %th= han(:user,:state)
     %th= t('.control')
   - @users.each do |user|
     %tr
@@ -18,10 +19,10 @@
       %td= user.type
       %td= user.email
       %td= user.phone
-      %td= user.human_state_name
+      %td= hsn(:user, 'state', user.state)
       %td
-        = link_to t('.edit'), edit_admin_user_path(user.id)
-        %br
-        = link_to t('.in_archive'), in_archive_admin_user_path(user.id), method: :put
-        %br
-        = link_to t('.Restore'), restore_admin_user_path(user.id), method: :put
+        = button_to t('.edit'), edit_admin_user_path(user.id), class: 'btn btn-info'
+        - user.state_events.each do |event|
+          %br
+          = button_to hsen(:user, 'state', event), {:action => event.to_sym, :id => user.id}, method: :put, class: 'btn btn-info'
+          
