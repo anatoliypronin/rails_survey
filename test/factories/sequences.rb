@@ -1,4 +1,8 @@
 FactoryBot.define do
+  sequence :string, aliases: [:title, :author] do |n|
+    "String-#{n}"
+  end
+  
   sequence(:string, aliases: %i[first_name last_name password title type]) { |n| "string#{n}" }
   sequence(:position) { |n| n }
 
