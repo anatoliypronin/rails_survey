@@ -11,3 +11,25 @@ ru:
         phone: Телефона
         state: Состояние
         control: Управление
+  
+  activerecord:
+    models:
+      user:
+        one: Пользователь
+        other: Пользователи
+      admin:
+        one: Админ
+        other: Админы
+    
+    attributes:
+      admin:
+        first_name: Имя
+        last_name: Фамилия
+        email: E-mail
+        password: Пароль
+      respondent:
+        first_name: Имя
+        last_name: Фамилия
+        email: E-mail
+        password: Пароль
+        phone: Телефон
