@@ -1,9 +1,12 @@
-%table
+= link_to t('.add_question'), new_admin_question_path, class: 'btn btn-info'
+
+%table.table.table-hover
   %tr
-    %td= t('id')
-    %td= t('title')
-    %td= t('position')
-    %td= t('type')
+    %td= han(:question,:id)
+    %td= han(:question,:title)
+    %td= han(:question,:position)
+    %td= han(:question,:kind)
+    %th= t('.control')
   - @questions.each do |question|
     %tr
       %td= question.id
