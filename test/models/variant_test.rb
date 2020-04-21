@@ -8,11 +8,9 @@ class VariantTest < ActiveSupport::TestCase
     assert created_variant
   end
   test "should not create variant with empty title" do
-    # variant = build :variant, title: nil
-    variant = Variant.new(title: 'hello world')
-    assert variant.save
-    # variant.save!
-    # created_variant = Variant.last
-    # assert_nil created_variant
+    variant = build :variant, title: nil
+    variant.save
+    created_variant = Variant.last
+    assert_nil created_variant
   end
 end

@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :variant do
-    title {"My title"}
+    question
+    title { "My title" }
   end
 end
