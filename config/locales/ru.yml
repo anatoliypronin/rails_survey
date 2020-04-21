@@ -13,6 +13,11 @@ ru:
         edit: Редактировать
         add_admin: Добавить Админ
         add_respondent: Добавить Респондент
+        questions: Вопросы
+    questions:
+      index:
+        control: Управление
+        add_question: Добавить Вопрос
   
   activerecord:
     state_machines:

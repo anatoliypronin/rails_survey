@@ -2,10 +2,10 @@
 
 %table.table.table-hover
   %tr
-    %td= han(:question,:id)
-    %td= han(:question,:title)
-    %td= han(:question,:position)
-    %td= han(:question,:kind)
+    %th= han(:question,:id)
+    %th= han(:question,:title)
+    %th= han(:question,:position)
+    %th= han(:question,:kind)
     %th= t('.control')
   - @questions.each do |question|
     %tr

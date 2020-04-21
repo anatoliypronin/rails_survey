@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     resources :respondents, only: %i[new create]
     resources :questions, only: %i[index new create destroy]
   end
-  namespace :survey do
-    resources :questions, only: %i[index new create destroy]
-  end
+  #namespace :survey do
+    #resources :questions, only: %i[index new create destroy]
+  #end
 end
