@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
+    root to: 'users#index'
     resources :users, only: %i[index show edit update] do
       member do
         put 'in_archive'

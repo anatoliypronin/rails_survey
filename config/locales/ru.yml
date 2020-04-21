@@ -1,0 +1,46 @@
+ru:
+  attributes:
+    id: ID
+
+  header:
+    homepage: Домашняя страница
+    admin_title: Админка анкетирования
+
+  admin:
+    users:
+      index:
+        control: Управление
+        edit: Редактировать
+        add_admin: Добавить Админ
+        add_respondent: Добавить Респондент
+  
+  activerecord:
+    state_machines:
+      user:
+        state:
+          states:
+            registration: Зарегистрированный
+            archive: Архивный
+          events:
+            in_archive: В архив
+            restore: Восстановить
+    models:
+      user:
+        one: Пользователь
+        other: Пользователи
+      admin:
+        one: Админ
+        other: Админы
+      respondent:
+        one: Респондент
+        other: Респонденты
+    attributes:
+      user:
+        first_name: Имя
+        last_name: Фамилия
+        email: E-mail
+        password: Пароль
+        phone: Телефон
+        type: Тип пользователя
+        state: Состояние
+        

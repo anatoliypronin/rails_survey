@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    %title= t('header.admin_title')
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'admin_application', media: :all
+    = javascript_include_tag 'admin_application'
+    
+  %body
+    .container
+      = render 'layouts/admin/header'
+      = yield
