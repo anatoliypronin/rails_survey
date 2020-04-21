@@ -1,5 +1,6 @@
 ru:
-  id: ID
+  attributes:
+    id: ID
 
   header:
     homepage: Домашняя страница
@@ -33,7 +34,6 @@ ru:
       respondent:
         one: Респондент
         other: Респонденты
-    
     attributes:
       user:
         first_name: Имя
@@ -43,3 +43,4 @@ ru:
         phone: Телефон
         type: Тип пользователя
         state: Состояние
+        
