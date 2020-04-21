@@ -1,6 +1,6 @@
 require "test_helper"
 
-class QuestionsControllerTest < ActionDispatch::IntegrationTest
+class Survey::QuestionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @question = create :question
   end

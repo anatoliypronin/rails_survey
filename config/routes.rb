@@ -8,8 +8,9 @@ Rails.application.routes.draw do
     end
     resources :admins, only: %i[new create]
     resources :respondents, only: %i[new create]
+    resources :questions, only: %i[index new create destroy]
   end
-  resources :survey do
+  namespace :survey do
     resources :questions, only: %i[index new create destroy]
   end
 end
