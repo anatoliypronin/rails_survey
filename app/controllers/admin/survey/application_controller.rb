@@ -1,2 +1,2 @@
-class Admin::Survey::ApplicationController < ApplicationController
+class Admin::Survey::ApplicationController < Admin::Survey::ApplicationController
 end

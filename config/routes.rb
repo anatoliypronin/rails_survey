@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :admin do
-    root to: 'users#index'
+    root to: "users#index"
     resources :users, only: %i[index show edit update] do
       member do
         put :in_archive
@@ -11,7 +11,4 @@ Rails.application.routes.draw do
     resources :respondents, only: %i[new create]
     resources :questions, only: %i[index new create destroy]
   end
-  #namespace :survey do
-    #resources :questions, only: %i[index new create destroy]
-  #end
 end
