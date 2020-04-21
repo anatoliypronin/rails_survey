@@ -1,0 +1,11 @@
+ru:
+  id: 'Идентификатор'
+        
+  activerecord:
+    attributes:
+      question:
+        title: Наименование
+        position: Позиция
+        kind: Тип
+        delete: Удалить
+        survey_id: 'Код опроса'

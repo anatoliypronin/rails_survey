@@ -27,6 +27,7 @@ gem "haml-rails", "~> 2.0"
 gem 'pg'
 gem 'simple_form'
 gem 'state_machines-activerecord'
+gem 'i18n'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

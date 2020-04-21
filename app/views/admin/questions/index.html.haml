@@ -1,12 +1,13 @@
 %table
   %tr
-    %td Идентификатор
-    %td Название
-    %td Позиция
-    %td Тип
+    %td= t('id')
+    %td= t('title')
+    %td= t('position')
+    %td= t('type')
   - @questions.each do |question|
     %tr
       %td= question.id
       %td= question.title
       %td= question.position
       %td= question.kind
+      %td= link_to t('delete'), admin_question_path(question.id), method: :delete
