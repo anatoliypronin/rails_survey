@@ -17,6 +17,7 @@ ru:
     questions:
       index:
         control: Управление
+        delete: Удалить
         add_question: Добавить Вопрос
   
   activerecord:
@@ -55,5 +56,4 @@ ru:
         title: Наименование
         position: Позиция
         kind: Тип
-        delete: Удалить
         survey_id: 'Код опроса'
