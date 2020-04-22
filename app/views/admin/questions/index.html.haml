@@ -6,13 +6,13 @@
     %th= han(:question,:title)
     %th= han(:question,:position)
     %th= han(:question,:kind)
-    %th= han(:question,:survey_id)
+    %th= han(:question,:survey)
     %th= t('.control')
   - @questions.each do |question|
     %tr
       %td= question.id
       %td= question.title
       %td= question.position
-      %td= question.kind
-      %td= question.survey_id
+      %td= question.kind_text
+      %td= question.survey.title
       %td= button_to t('.delete'), admin_question_path(question.id), method: :delete, class: 'btn btn-info'

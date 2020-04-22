@@ -56,4 +56,11 @@ ru:
         title: Наименование
         position: Позиция
         kind: Тип
-        survey_id: 'Код опроса'
+        survey: 'Наименование опроса'
+
+  enumerize:
+    question:
+      kind:
+        input: 'Свой ответ'
+        check_box: 'Несколько вариантов'
+        radio_button: 'Один вариант'
