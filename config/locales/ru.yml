@@ -64,3 +64,11 @@ ru:
         input: 'Свой ответ'
         check_box: 'Несколько вариантов'
         radio_button: 'Один вариант'
+
+  simple_form:
+    options:
+      question:
+        kind:
+          input: 'Свой ответ'
+          check_box: 'Несколько вариантов'
+          radio_button: 'Один вариант'
