@@ -7,6 +7,7 @@ class SurveyTest < ActiveSupport::TestCase
     created_survey = Survey.last
     assert created_survey
   end
+
   test "should not create survey with empty title" do
     survey = build :survey, title: nil
     survey.save

@@ -1,5 +1,6 @@
 class Question < ApplicationRecord
   extend Enumerize
+  belongs_to :survey
   has_many :answers, dependent: :destroy
   validates :title, presence: true
   validates :position, presence: true

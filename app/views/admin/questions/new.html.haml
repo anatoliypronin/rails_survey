@@ -1,0 +1,6 @@
+= simple_form_for @question, url: admin_questions_path do |f|
+  = f.input :title
+  = f.input :position
+  = f.select :kind, Question.kind.options
+  = f.association :survey, include_blank: false
+  = f.button :submit, class: 'btn btn-info'

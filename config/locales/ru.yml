@@ -13,6 +13,12 @@ ru:
         edit: Редактировать
         add_admin: Добавить Админ
         add_respondent: Добавить Респондент
+        questions: Вопросы
+    questions:
+      index:
+        control: Управление
+        delete: Удалить
+        add_question: Добавить Вопрос
   
   activerecord:
     state_machines:
@@ -34,6 +40,9 @@ ru:
       respondent:
         one: Респондент
         other: Респонденты
+      question:
+        one: Вопрос
+        other: Вопросы
     attributes:
       user:
         first_name: Имя
@@ -43,4 +52,23 @@ ru:
         phone: Телефон
         type: Тип пользователя
         state: Состояние
-        
+      question:
+        title: Наименование
+        position: Позиция
+        kind: Тип
+        survey: 'Наименование опроса'
+
+  enumerize:
+    question:
+      kind:
+        input: 'Свой ответ'
+        check_box: 'Несколько вариантов'
+        radio_button: 'Один вариант'
+
+  simple_form:
+    options:
+      question:
+        kind:
+          input: 'Свой ответ'
+          check_box: 'Несколько вариантов'
+          radio_button: 'Один вариант'
