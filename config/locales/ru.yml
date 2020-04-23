@@ -1,6 +1,10 @@
 ru:
+  'true': Да
+  'false': Нет
   attributes:
     id: ID
+    title: Наименование
+    state: Состояние
 
   header:
     homepage: Домашняя страница
@@ -14,11 +18,17 @@ ru:
         add_admin: Добавить Админ
         add_respondent: Добавить Респондент
         questions: Вопросы
+        surveys: Опросы
     questions:
       index:
         control: Управление
         delete: Удалить
         add_question: Добавить Вопрос
+    surveys:
+      index:
+        add_survey: Добавить Опрос
+        control: Управление
+        
   
   activerecord:
     state_machines:
@@ -30,6 +40,18 @@ ru:
           events:
             in_archive: В архив
             restore: Восстановить
+      survey:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+            closed: Закрытый
+            opened: Открытый
+          events:
+            del: Удалить
+            restore: Восстановить
+            close: Закрыть
+            to_open: Открыть
     models:
       user:
         one: Пользователь
@@ -43,6 +65,9 @@ ru:
       question:
         one: Вопрос
         other: Вопросы
+      survey:
+        one: Опрос
+        other: Опросы
     attributes:
       user:
         first_name: Имя
@@ -51,12 +76,12 @@ ru:
         password: Пароль
         phone: Телефон
         type: Тип пользователя
-        state: Состояние
       question:
-        title: Наименование
         position: Позиция
         kind: Тип
         survey: 'Наименование опроса'
+      survey:
+        public: Опубликован
 
   enumerize:
     question:
@@ -66,6 +91,9 @@ ru:
         radio_button: 'Один вариант'
 
   simple_form:
+    labels:
+      survey:
+        public: Опубликовать
     options:
       question:
         kind:

@@ -1,0 +1,4 @@
+= simple_form_for @survey, url: admin_surveys_path do |f|
+    = f.input :title
+    = f.input :public, as: :boolean
+    = f.button :submit, class: 'btn btn-info'

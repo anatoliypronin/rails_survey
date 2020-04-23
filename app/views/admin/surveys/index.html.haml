@@ -1,0 +1,19 @@
+= link_to t('.add_survey'), new_admin_survey_path, class: 'btn btn-info'
+
+%table.table.table-hover
+  %tr
+    %th= han(:survey,:id)
+    %th= han(:survey,:title)
+    %th= han(:survey,:public)
+    %th= han(:survey,:state)
+    %th= t('.control')
+  - @surveys.each do |survey|
+    %tr
+      %td= survey.id
+      %td= survey.title
+      %td= survey.public
+      %td= hsn(:survey, 'state', survey.state)
+      %td 
+        - survey.state_events.each do |event|
+          %br
+          = button_to hsen(:survey, 'state', event), {:action => event.to_sym, :id => survey.id}, method: :put, class: 'btn btn-info'
