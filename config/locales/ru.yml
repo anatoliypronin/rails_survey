@@ -1,6 +1,4 @@
 ru:
-  'true': Да
-  'false': Нет
   attributes:
     id: ID
     title: Наименование
