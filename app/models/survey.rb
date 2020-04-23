@@ -1,7 +1,7 @@
 class Survey < ApplicationRecord
   has_many :tags, through: :tag_surveys
-  # has_many :tag_surveys, dependent: :destroy
-  # belongs_to :user
+  has_many :tag_surveys, dependent: :destroy
+  has_many :questions, dependent: :destroy
   validates :title, presence: true
   state_machine initial: :active do
     state :active
