@@ -35,7 +35,7 @@ ActiveRecord::Schema.define(version: 2020_04_20_191720) do
   end
 
   create_table "surveys", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title"
     t.boolean "public"
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
@@ -47,13 +47,18 @@ ActiveRecord::Schema.define(version: 2020_04_20_191720) do
     t.bigint "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["survey_id", "tag_id"], name: "index_tag_surveys_on_survey_id_and_tag_id", unique: true
+    t.index ["survey_id", "tag_id"], name: "index_tag_surveys_on_survey_id_and_tag_id"
     t.index ["survey_id"], name: "index_tag_surveys_on_survey_id"
     t.index ["tag_id"], name: "index_tag_surveys_on_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "title", null: false
+    t.string "title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_tags", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -73,8 +78,17 @@ ActiveRecord::Schema.define(version: 2020_04_20_191720) do
     t.index ["phone"], name: "index_users_on_phone", unique: true
   end
 
+  create_table "variants", force: :cascade do |t|
+    t.bigint "question_id", null: false
+    t.string "title", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_variants_on_question_id"
+  end
+
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "surveys"
   add_foreign_key "tag_surveys", "surveys"
   add_foreign_key "tag_surveys", "tags"
+  add_foreign_key "variants", "questions"
 end
