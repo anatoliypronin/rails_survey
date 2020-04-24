@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     admin = Admin.find_by(email: params[:user][:email])
 
     if admin && admin.authenticate(params[:user][:password])
-      session[:admin_id] = admin.id
+      admin_sign_in(admin)
       redirect_to admin_root_path
     else
       render action: :new
@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete(:admin_id)
+    admin_sign_out
     redirect_to new_session_path
   end
 end
