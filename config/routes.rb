@@ -10,12 +10,10 @@ Rails.application.routes.draw do
     resources :admins, only: %i[new create]
     resources :respondents, only: %i[new create]
     resources :questions, only: %i[index new create destroy]
-    resources :surveys, only: %i[index new create destroy] do
+    resources :surveys, only: %i[index new create show edit update destroy] do
       member do
         put :del
         put :restore
-        put :close
-        put :to_open
       end
     end
   end

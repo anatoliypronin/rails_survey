@@ -7,7 +7,7 @@ class Survey < ApplicationRecord
   state_machine initial: :active do
     state :active
     state :deleted
-    
+
     event :del do
       transition active: :deleted
     end

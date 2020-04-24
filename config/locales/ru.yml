@@ -26,8 +26,17 @@ ru:
       index:
         add_survey: Добавить Опрос
         control: Управление
-        
-  
+        show: Просмотр
+      show:
+        edit: Редактировать
+        back: Назад
+        destroy: Удалить
+        public: Опубликован
+        user: Автор
+        state: Состояние
+        created_at: Дата создания
+
+ 
   activerecord:
     state_machines:
       user:

@@ -17,6 +17,24 @@ class Admin::SurveysController < Admin::ApplicationController
     end
   end
 
+  def show
+    @survey = Survey.find(params[:id]).decorate
+  end
+
+  def edit
+    @survey = Survey.find(params[:id])
+  end
+
+  def update
+    @survey = Survey.find(params[:id])
+    survey_attrs = send("survey_attrs")
+    if @survey.update(survey_attrs)
+      redirect_to action: :show
+    else
+      render action: :edit
+    end
+  end
+
   def destroy
     survey = Survey.find(params[:id])
     survey.destroy

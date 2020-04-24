@@ -5,13 +5,13 @@
     %th= han(:survey,:id)
     %th= han(:survey,:title)
     %th= han(:survey,:public)
-    %th= han(:survey, :user)
+    %th= han(:survey,:user)
     %th= han(:survey,:state)
     %th= han(:survey,:created_at)
     %th= t('.control')
   - @surveys.each do |survey|
     %tr
-      %td= survey.id
+      %td= link_to survey.id, admin_survey_path(survey.id), target: :_blank
       %td= survey.title
       %td= survey.public
       %td 

@@ -1,0 +1,20 @@
+%h1= "Show #{@survey.title}"
+
+%b Public
+= @survey.public
+%br
+%b Author
+= @survey.user.first_name
+= @survey.user.last_name
+%br
+%b State
+= @survey.state
+%br
+%b Created at
+= @survey.created_at
+%br
+= link_to t('.edit'), edit_admin_survey_path(@survey)
+%br
+= link_to t('.destroy'), admin_survey_path(@survey), method: :delete
+%br
+= link_to t('.back'), admin_surveys_path
