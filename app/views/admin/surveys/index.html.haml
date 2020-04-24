@@ -7,6 +7,7 @@
     %th= han(:survey,:public)
     %th= han(:survey, :user)
     %th= han(:survey,:state)
+    %th= han(:survey,:created_at)
     %th= t('.control')
   - @surveys.each do |survey|
     %tr
@@ -17,6 +18,7 @@
         = survey.user.last_name
         = survey.user.first_name
       %td= hsn(:survey, 'state', survey.state)
+      %td= survey.created_at
       %td 
         - survey.state_events.each do |event|
           %br

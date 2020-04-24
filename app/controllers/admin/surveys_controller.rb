@@ -1,6 +1,6 @@
 class Admin::SurveysController < Admin::ApplicationController
   def index
-    @surveys = Survey.all
+    @surveys = Survey.all.decorate
   end
 
   def new
