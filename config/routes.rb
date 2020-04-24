@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resource :session, only: %i[new create destory]
+
   namespace :admin do
     root to: 'users#index'
     resources :users, only: %i[index show edit update] do

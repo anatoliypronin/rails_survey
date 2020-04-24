@@ -3,13 +3,13 @@
 
 %table.table.table-hover
   %tr
-    %th= han(:user,:id)
+    %th= han(:user, :id)
     %th= han(:user, :first_name)
     %th= han(:user, :last_name)
-    %th= han(:user,:type)
-    %th= han(:user,:email)
-    %th= han(:user,:phone)
-    %th= han(:user,:state)
+    %th= han(:user, :type)
+    %th= han(:user, :email)
+    %th= han(:user, :phone)
+    %th= han(:user, :state)
     %th= t('.control')
   - @users.each do |user|
     %tr
