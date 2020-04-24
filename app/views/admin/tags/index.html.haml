@@ -1,0 +1,6 @@
+%table
+  - @tags.each do |tags|
+    %tr
+      %td= tags.id
+      %td= tags.title
+      %td= button_to t('.delete'), admin_tags_path(tags.id), method: :delete, class: 'btn btn-info'

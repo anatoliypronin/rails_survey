@@ -6,6 +6,7 @@ class Admin::QuestionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index questions" do
+    create :tag
     get admin_questions_path
     assert_response :success
   end
