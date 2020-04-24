@@ -1,18 +1,18 @@
 module AuthHelper
-  def admin_sign_in(admin)
-    session[:admin_id] = admin.id
+  def user_sign_in(user)
+    session[:user_id] = user.id
   end
 
-  def admin_sign_out
-    session.delete(:admin_id)
+  def user_sign_out
+    session.delete(:user_id)
   end
 
-  def current_admin
-    Admin.find_by(id: session[:admin_id])
+  def current_user
+    User.find_by(id: session[:user_id])
   end
 
   def admin_signed_in?
-    current_admin
+    current_user && current_user.type == 'Admin'
   end
 
   def authenticate_admin!
