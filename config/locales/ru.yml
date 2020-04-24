@@ -5,6 +5,7 @@ ru:
   header:
     homepage: Домашняя страница
     admin_title: Админка анкетирования
+    sign_out: Выйти
 
   admin:
     users:
@@ -43,4 +44,3 @@ ru:
         phone: Телефон
         type: Тип пользователя
         state: Состояние
-        
