@@ -8,7 +8,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should post create session page for admin' do
     admin = create :admin
-    post session_path, params: {admin: { email: admin.email, password: admin.password }}
+    post session_path, params: {user: { email: admin.email, password: admin.password }}
     assert_response :redirect
 
     assert_equal session[:admin_id], admin.id
@@ -16,8 +16,20 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should not post create session page for admin' do
     admin = create :admin
-    post session_path, params: {admin: { email: admin.email, password: 'bad_password'}}
+    post session_path, params: {user: { email: admin.email, password: 'bad_password'}}
     assert_response :success
+
+    assert_nil session[:admin_id]
+  end
+
+  test 'should delete destroy session page for admin' do
+    admin = create :admin
+    post session_path, params: {user: { email: admin.email, password: admin.password }}
+
+    assert_equal session[:admin_id], admin.id
+
+    delete session_path
+    assert_response :redirect
 
     assert_nil session[:admin_id]
   end

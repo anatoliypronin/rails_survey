@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :session, only: %i[new create destory]
+  resource :session, only: %i[new create destroy]
 
   namespace :admin do
     root to: 'users#index'
