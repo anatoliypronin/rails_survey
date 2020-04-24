@@ -14,9 +14,7 @@
       %td= link_to survey.id, admin_survey_path(survey.id), target: :_blank
       %td= survey.title
       %td= survey.public
-      %td 
-        = survey.user.last_name
-        = survey.user.first_name
+      %td= survey.user.full_name
       %td= hsn(:survey, 'state', survey.state)
       %td= survey.created_at
       %td 

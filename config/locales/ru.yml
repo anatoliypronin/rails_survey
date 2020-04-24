@@ -3,6 +3,11 @@ ru:
     id: ID
     title: Наименование
     state: Состояние
+    true: Да
+    false: Нет
+  values:
+    true: Да
+    false: Нет
 
   header:
     homepage: Домашняя страница
@@ -28,6 +33,7 @@ ru:
         control: Управление
         show: Просмотр
       show:
+        show: Просмотр
         edit: Редактировать
         back: Назад
         destroy: Удалить
@@ -52,13 +58,9 @@ ru:
           states:
             active: Активный
             deleted: Удаленный
-            closed: Закрытый
-            opened: Открытый
           events:
             del: Удалить
             restore: Восстановить
-            close: Закрыть
-            to_open: Открыть
     models:
       user:
         one: Пользователь
@@ -90,6 +92,7 @@ ru:
       survey:
         public: Опубликован
         user: Автор
+        created_at: Дата создания
 
   enumerize:
     question:

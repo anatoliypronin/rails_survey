@@ -1,20 +1,17 @@
-%h1= "Show #{@survey.title}"
+%h1= t('.show') + " #{@survey.title}"
 
-%b Public
+%b= t('.public')
 = @survey.public
 %br
-%b Author
-= @survey.user.first_name
-= @survey.user.last_name
+%b= t('.user')
+= @survey.user.full_name
 %br
-%b State
+%b= t('.state')
 = @survey.state
 %br
-%b Created at
+%b= t('.created_at')
 = @survey.created_at
 %br
-= link_to t('.edit'), edit_admin_survey_path(@survey)
-%br
-= link_to t('.destroy'), admin_survey_path(@survey), method: :delete
-%br
-= link_to t('.back'), admin_surveys_path
+  = button_to t('.edit'), edit_admin_survey_path(@survey), class: 'btn btn-info', method: :get
+  = button_to t('.destroy'), admin_survey_path(@survey), class: 'btn btn-info', method: :delete
+= button_to t('.back'), admin_surveys_path, class: 'btn btn-primary btn-sm', method: :get
