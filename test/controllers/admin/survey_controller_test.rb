@@ -17,6 +17,7 @@ class Admin::SurveyControllerTest < ActionDispatch::IntegrationTest
 
   test "should post create survey" do
     survey_attrs = attributes_for :survey
+    survey_attrs[:user_id] = @survey.user_id
     post admin_surveys_path, params: { survey: survey_attrs }
     assert_response :redirect
 

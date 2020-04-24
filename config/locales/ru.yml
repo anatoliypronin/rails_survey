@@ -80,6 +80,7 @@ ru:
         survey: 'Наименование опроса'
       survey:
         public: Опубликован
+        user: Автор
 
   enumerize:
     question:
