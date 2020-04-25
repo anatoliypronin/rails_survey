@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_20_191720) do
+ActiveRecord::Schema.define(version: 2020_04_23_170625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,11 +35,13 @@ ActiveRecord::Schema.define(version: 2020_04_20_191720) do
   end
 
   create_table "surveys", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.boolean "public"
     t.string "state"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
+    t.index ["user_id"], name: "index_surveys_on_user_id"
   end
 
   create_table "tag_surveys", force: :cascade do |t|
@@ -47,20 +49,25 @@ ActiveRecord::Schema.define(version: 2020_04_20_191720) do
     t.bigint "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["survey_id", "tag_id"], name: "index_tag_surveys_on_survey_id_and_tag_id"
+    t.index ["survey_id", "tag_id"], name: "index_tag_surveys_on_survey_id_and_tag_id", unique: true
     t.index ["survey_id"], name: "index_tag_surveys_on_survey_id"
     t.index ["tag_id"], name: "index_tag_surveys_on_tag_id"
   end
 
   create_table "tags", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "user_tags", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "tag_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_user_tags_on_tag_id"
+    t.index ["user_id", "tag_id"], name: "index_user_tags_on_user_id_and_tag_id", unique: true
+    t.index ["user_id"], name: "index_user_tags_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -88,7 +95,10 @@ ActiveRecord::Schema.define(version: 2020_04_20_191720) do
 
   add_foreign_key "answers", "questions"
   add_foreign_key "questions", "surveys"
+  add_foreign_key "surveys", "users"
   add_foreign_key "tag_surveys", "surveys"
   add_foreign_key "tag_surveys", "tags"
+  add_foreign_key "user_tags", "tags"
+  add_foreign_key "user_tags", "users"
   add_foreign_key "variants", "questions"
 end
