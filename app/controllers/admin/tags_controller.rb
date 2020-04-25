@@ -1,4 +1,4 @@
- class Admin::TagsController < Admin::ApplicationController
+class Admin::TagsController < Admin::ApplicationController
   def index
     @tags = Tag.all
   end
@@ -24,6 +24,7 @@
   end
 
   private
+
   def tag_attrs
     params.require(:tag).permit(:title)
   end
