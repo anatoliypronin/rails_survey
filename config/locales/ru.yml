@@ -14,12 +14,19 @@ ru:
         add_admin: Добавить Админ
         add_respondent: Добавить Респондент
         questions: Вопросы
+        tags: Теги
     questions:
       index:
         control: Управление
         delete: Удалить
         add_question: Добавить Вопрос
-  
+    tags:
+      index:
+        control: Управление
+        delete: Удалить
+        add_tags: Добавить тег
+
+
   activerecord:
     state_machines:
       user:
@@ -43,6 +50,9 @@ ru:
       question:
         one: Вопрос
         other: Вопросы
+      tag:
+        one: Тег
+        onther: Теги
     attributes:
       user:
         first_name: Имя
@@ -57,6 +67,8 @@ ru:
         position: Позиция
         kind: Тип
         survey: 'Наименование опроса'
+      tag:
+        title: Наименование
 
   enumerize:
     question:
