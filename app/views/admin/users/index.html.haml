@@ -1,7 +1,7 @@
 = link_to t('.add_admin'), new_admin_admin_path, class: 'btn btn-info'
 = link_to t('.add_respondent'), new_admin_respondent_path, class: 'btn btn-info'
 = link_to t('.questions'), admin_questions_path, class: 'btn btn-info'
-
+= link_to t('.tags'), admin_tags_path, class: 'btn btn-info'
 %table.table.table-hover
   %tr
     %th= han(:user,:id)
@@ -26,4 +26,3 @@
         - user.state_events.each do |event|
           %br
           = button_to hsen(:user, 'state', event), {:action => event.to_sym, :id => user.id}, method: :put, class: 'btn btn-info'
-          
