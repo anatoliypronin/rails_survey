@@ -2,11 +2,11 @@
 
 %table.table.table-hover
   %tr
-    %th= han(:tags,:id)
-    %th= han(:tags,:title)
+    %th= han(:tag,:id)
+    %th= han(:tag,:title)
     %th= t('.control')
-  - @tags.each do |tags|
+  - @tags.each do |tag|
     %tr
-      %td= tags.id
-      %td= tags.title
+      %td= tag.id
+      %td= tag.title
       %td= button_to t('.delete'), admin_tag_path(tag.id), method: :delete, class: 'btn btn-info'
