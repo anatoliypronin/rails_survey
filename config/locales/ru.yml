@@ -1,6 +1,13 @@
 ru:
   attributes:
     id: ID
+    title: Наименование
+    state: Состояние
+    true: Да
+    false: Нет
+  values:
+    true: Да
+    false: Нет
 
   header:
     homepage: Домашняя страница
@@ -14,7 +21,10 @@ ru:
         add_admin: Добавить Админ
         add_respondent: Добавить Респондент
         questions: Вопросы
+
         tags: Теги
+        surveys: Опросы
+
     questions:
       index:
         control: Управление
@@ -25,8 +35,20 @@ ru:
         control: Управление
         delete: Удалить
         add_tags: Добавить тег
-
-
+    surveys:
+      index:
+        add_survey: Добавить Опрос
+        control: Управление
+        show: Просмотр
+      show:
+        show: Просмотр
+        edit: Редактировать
+        back: Назад
+        destroy: Удалить
+        public: Опубликован
+        user: Автор
+        state: Состояние
+        created_at: Дата создания
   activerecord:
     state_machines:
       user:
@@ -36,6 +58,14 @@ ru:
             archive: Архивный
           events:
             in_archive: В архив
+            restore: Восстановить
+      survey:
+        state:
+          states:
+            active: Активный
+            deleted: Удаленный
+          events:
+            del: Удалить
             restore: Восстановить
     models:
       user:
@@ -53,6 +83,9 @@ ru:
       tag:
         one: Тег
         onther: Теги
+      survey:
+        one: Опрос
+        other: Опросы
     attributes:
       user:
         first_name: Имя
@@ -61,14 +94,16 @@ ru:
         password: Пароль
         phone: Телефон
         type: Тип пользователя
-        state: Состояние
       question:
-        title: Наименование
         position: Позиция
         kind: Тип
         survey: 'Наименование опроса'
       tag:
         title: Наименование
+      survey:
+        public: Опубликован
+        user: Автор
+        created_at: Дата создания
 
   enumerize:
     question:
@@ -78,6 +113,9 @@ ru:
         radio_button: 'Один вариант'
 
   simple_form:
+    labels:
+      survey:
+        public: Опубликовать
     options:
       question:
         kind:

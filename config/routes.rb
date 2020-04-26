@@ -11,5 +11,11 @@ Rails.application.routes.draw do
     resources :respondents, only: %i[new create]
     resources :questions, only: %i[index new create destroy]
     resources :tags, only: %i[index new create destroy]
+    resources :surveys, only: %i[index new create show edit update destroy] do
+      member do
+        put :del
+        put :restore
+      end
+    end
   end
 end
