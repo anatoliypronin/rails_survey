@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_170625) do
+ActiveRecord::Schema.define(version: 2020_04_26_112325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,14 @@ ActiveRecord::Schema.define(version: 2020_04_23_170625) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "user_surveys", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "state"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_user_surveys_on_user_id"
+  end
+
   create_table "user_tags", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "tag_id"
@@ -98,6 +106,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_170625) do
   add_foreign_key "surveys", "users"
   add_foreign_key "tag_surveys", "surveys"
   add_foreign_key "tag_surveys", "tags"
+  add_foreign_key "user_surveys", "users"
   add_foreign_key "user_tags", "tags"
   add_foreign_key "user_tags", "users"
   add_foreign_key "variants", "questions"
