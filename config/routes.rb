@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "welcome#index"
   namespace :admin do
     root to: "users#index"
     resources :users, only: %i[index show edit update] do

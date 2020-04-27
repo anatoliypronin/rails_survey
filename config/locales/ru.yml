@@ -12,6 +12,7 @@ ru:
   header:
     homepage: Домашняя страница
     admin_title: Админка анкетирования
+    welcome_title: Анкетирование
 
   admin:
     users:
@@ -21,7 +22,6 @@ ru:
         add_admin: Добавить Админ
         add_respondent: Добавить Респондент
         questions: Вопросы
-
         tags: Теги
         surveys: Опросы
 
@@ -30,11 +30,13 @@ ru:
         control: Управление
         delete: Удалить
         add_question: Добавить Вопрос
+
     tags:
       index:
         control: Управление
         delete: Удалить
         add_tags: Добавить тег
+
     surveys:
       index:
         add_survey: Добавить Опрос
@@ -49,6 +51,11 @@ ru:
         user: Автор
         state: Состояние
         created_at: Дата создания
+
+  welcome:
+    index:
+      public_surveys: Публичные опросы
+
   activerecord:
     state_machines:
       user:
