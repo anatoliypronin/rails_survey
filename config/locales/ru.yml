@@ -6,6 +6,17 @@ ru:
     homepage: Домашняя страница
     admin_title: Админка анкетирования
     log_out: Выйти
+  
+  
+  sessions:
+    new:
+      sign_in: Войти
+  
+  simple_form:
+    labels:
+      user:
+        email: 'Е-mail'
+        password: 'Пароль'
 
   admin:
     users:

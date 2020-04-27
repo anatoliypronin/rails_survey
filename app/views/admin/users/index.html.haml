@@ -21,8 +21,8 @@
       %td= user.phone
       %td= hsn(:user, 'state', user.state)
       %td
-        = button_to t('.edit'), edit_admin_user_path(user.id), class: 'btn btn-info'
+        = link_to t('.edit'), edit_admin_user_path(user.id), class: 'btn btn-info m-1 btn-block'
         - user.state_events.each do |event|
           %br
-          = button_to hsen(:user, 'state', event), {:action => event.to_sym, :id => user.id}, method: :put, class: 'btn btn-info'
+          = link_to hsen(:user, 'state', event), {:action => event.to_sym, :id => user.id}, method: :put, class: 'btn btn-info m-1 btn-block'
           
