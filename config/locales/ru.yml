@@ -15,9 +15,7 @@ ru:
     log_out: Выйти
   
   
-  sessions:
-    new:
-      sign_in: Войти
+  
   
   simple_form:
     labels:
@@ -26,6 +24,9 @@ ru:
         password: 'Пароль'
 
   admin:
+    sessions:
+      new:
+        sign_in: Войти
     users:
       index:
         control: Управление

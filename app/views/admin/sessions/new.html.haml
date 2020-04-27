@@ -1,4 +1,4 @@
-= simple_form_for :user, url: session_path do |f|
+= simple_form_for :admin, url: admin_session_path do |f|
   = f.input :email
   = f.input :password
   = f.button :submit, t('.sign_in'), class: 'btn btn-info'
