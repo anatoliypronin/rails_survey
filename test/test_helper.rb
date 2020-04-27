@@ -2,16 +2,7 @@ ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"
 require "rails/test_help"
 
-module SignInHelper
-  def sign_in_as_admin(admin)
-    post session_path, params: {
-      user: {
-        password: admin.password,
-        email: admin.email
-      }
-    }
-  end
-end
+Dir[Rails.root.join('test/support/**/*.rb')].sort.each { |f| require f }
 
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
@@ -20,5 +11,5 @@ class ActiveSupport::TestCase
 end
 
 class ActionDispatch::IntegrationTest
-  include SignInHelper
+  include Support::Auth
 end
