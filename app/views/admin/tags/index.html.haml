@@ -1,0 +1,12 @@
+= link_to t('.add_tags'), new_admin_tag_path, class: 'btn btn-info'
+
+%table.table.table-hover
+  %tr
+    %th= han(:tag,:id)
+    %th= han(:tag,:title)
+    %th= t('.control')
+  - @tags.each do |tag|
+    %tr
+      %td= tag.id
+      %td= tag.title
+      %td= button_to t('.delete'), admin_tag_path(tag.id), method: :delete, class: 'btn btn-info'
