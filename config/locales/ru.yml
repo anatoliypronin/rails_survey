@@ -5,7 +5,7 @@ ru:
   header:
     homepage: Домашняя страница
     admin_title: Админка анкетирования
-    sign_out: Выйти
+    log_out: Выйти
 
   admin:
     users:

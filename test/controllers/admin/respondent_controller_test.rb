@@ -5,7 +5,7 @@ class Admin::RespondentsControllerTest < ActionDispatch::IntegrationTest
     admin = create :admin
     sign_in_as_admin(admin)
   end
-  
+
   test 'should get new respondent' do
     get new_admin_respondent_path
     assert_response :success
