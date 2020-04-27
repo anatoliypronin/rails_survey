@@ -21,12 +21,20 @@ ru:
         add_admin: Добавить Админ
         add_respondent: Добавить Респондент
         questions: Вопросы
+
+        tags: Теги
         surveys: Опросы
+
     questions:
       index:
         control: Управление
         delete: Удалить
         add_question: Добавить Вопрос
+    tags:
+      index:
+        control: Управление
+        delete: Удалить
+        add_tags: Добавить тег
     surveys:
       index:
         add_survey: Добавить Опрос
@@ -41,7 +49,6 @@ ru:
         user: Автор
         state: Состояние
         created_at: Дата создания
-
 
   activerecord:
     state_machines:
@@ -74,6 +81,9 @@ ru:
       question:
         one: Вопрос
         other: Вопросы
+      tag:
+        one: Тег
+        onther: Теги
       survey:
         one: Опрос
         other: Опросы
@@ -92,6 +102,8 @@ ru:
         position: Позиция
         kind: Тип
         survey: 'Наименование опроса'
+      tag:
+        title: Наименование
       survey:
         public: Опубликован
         user: Автор
