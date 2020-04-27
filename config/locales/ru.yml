@@ -97,9 +97,7 @@ ru:
         password: Пароль
         phone: Телефон
         type: Тип пользователя
-<<<<<<< HEAD
         state: Состояние
-=======
       question:
         position: Позиция
         kind: Тип
@@ -126,4 +124,3 @@ ru:
           input: 'Свой ответ'
           check_box: 'Несколько вариантов'
           radio_button: 'Один вариант'
->>>>>>> e40d9c6a309311425a09f15a6d68dfa91d399dd0
