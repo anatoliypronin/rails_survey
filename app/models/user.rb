@@ -1,6 +1,7 @@
 class User < ApplicationRecord
-  validates :first_name,  presence: true,
-                          length: { minimum: 2 }
+  has_many :tags, through: :user_tags
+  validates :first_name, presence: true,
+                         length: { minimum: 2 }
   validates :last_name, presence: true,
                         length: { minimum: 2 }
   validates :type, presence: true
