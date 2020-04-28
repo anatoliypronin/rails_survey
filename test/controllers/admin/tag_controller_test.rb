@@ -34,7 +34,6 @@ class Admin::TagsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should delete destroy tag" do
-
     delete admin_tag_path(@tag)
     assert_response :redirect
 
