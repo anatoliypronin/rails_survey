@@ -1,10 +1,10 @@
 class Admin::SessionsController < Admin::ApplicationController
-  skip_before_action :authenticate_admin!, only: [:new, :create]
+  skip_before_action :authenticate_admin!, only: %i[new create]
   def new; end
 
   def create
     user = User.find_by(email: params[:admin][:email])
-    if user && user.authenticate(params[:admin][:password])
+    if user&.authenticate(params[:admin][:password])
       user_sign_in(user)
       redirect_to admin_root_path
     else
