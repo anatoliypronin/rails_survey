@@ -13,9 +13,9 @@ ru:
     homepage: Домашняя страница
     admin_title: Админка анкетирования
     log_out: Выйти
-  
-  
-  
+    users: Пользователи
+    surveys: Опросы
+    questions: Вопросы
   
   simple_form:
     labels:
