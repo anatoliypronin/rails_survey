@@ -17,12 +17,6 @@ ru:
     surveys: Опросы
     questions: Вопросы
     tags: Теги
-  
-  simple_form:
-    labels:
-      user:
-        email: 'Е-mail'
-        password: 'Пароль'
 
   admin:
     sessions:
@@ -38,7 +32,6 @@ ru:
 
         tags: Теги
         surveys: Опросы
-
     questions:
       index:
         control: Управление
