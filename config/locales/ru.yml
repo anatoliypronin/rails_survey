@@ -16,6 +16,7 @@ ru:
     users: Пользователи
     surveys: Опросы
     questions: Вопросы
+    tags: Теги
   
   simple_form:
     labels:
