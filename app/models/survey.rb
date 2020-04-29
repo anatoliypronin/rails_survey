@@ -17,15 +17,12 @@ class Survey < ApplicationRecord
     end
   end
   def all_tags
-    self.tags.map(&:title).join(', ')
+    self.tags.map(&:title)
   end
   def all_tags=(title)
     self.tags = title.split(',').map do |title|
-      Tag.where(title: title.strip).first!
+      title = Tag.find(title)
+      Tag.where(title: title.title).first_or_create!
     end
   end
-  def get_select_title
-   title = Tag.all.map{ |tag| [tag.title, tag.id] }
-   title.push([])
- end
 end
