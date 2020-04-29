@@ -16,10 +16,7 @@ class Admin::TagsController < Admin::ApplicationController
       render action: :new
     end
   end
-  def show
-    @tag = Tag.find_by(title: params[:id])
-    @surveys = @tag.surveys
-  end
+  
   def destroy
     tag = Tag.find(params[:id])
     tag.destroy

@@ -104,6 +104,7 @@ ru:
         public: Опубликован
         user: Автор
         created_at: Дата создания
+        all_tags: Тег
 
   enumerize:
     question:

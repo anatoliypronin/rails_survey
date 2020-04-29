@@ -6,6 +6,7 @@
     %th= han(:survey,:title)
     %th= han(:survey,:public)
     %th= han(:survey,:user)
+    %th= han(:survey,:all_tags )
     %th= han(:survey,:state)
     %th= han(:survey,:created_at)
     %th= t('.control')
@@ -15,6 +16,7 @@
       %td= survey.title
       %td= survey.public
       %td= survey.user.full_name
+      %td= survey.all_tags
       %td= hsn(:survey, 'state', survey.state)
       %td= survey.created_at
       %td

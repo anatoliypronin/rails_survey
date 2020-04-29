@@ -23,7 +23,7 @@ class Admin::TagsControllerTest < ActionDispatch::IntegrationTest
     tag = Tag.last
     assert_equal tag_attrs[:title], tag.title
   end
-
+  
   test "should not post create tag" do
     tag_attrs = attributes_for :tag, title: nil
     post admin_tags_path, params: { tag: tag_attrs }

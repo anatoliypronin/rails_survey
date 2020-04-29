@@ -1,5 +1,5 @@
 class Survey < ApplicationRecord
-  has_many :tag_surveys
+  has_many :tag_surveys, dependent: :destroy
   has_many :tags, through: :tag_surveys
   has_many :questions, dependent: :destroy
   belongs_to :user
@@ -17,12 +17,13 @@ class Survey < ApplicationRecord
     end
   end
   def all_tags
-    self.tags.map(&:title)
+    self.tags.map(&:title).join(", ")
   end
+  
   def all_tags=(title)
-    self.tags = title.split(',').map do |title|
-      title = Tag.find(title)
-      Tag.where(title: title.title).first_or_create!
+    self.tags = title.split(',').map do |t|
+      title = Tag.find(t)
+      Tag.where(title: title.title).first!
     end
   end
 end
