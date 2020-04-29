@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class Admin::AdminsControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    admin = create :admin
+    sign_in_as_admin(admin)
+  end
+
   test 'should get new admin' do
     get new_admin_admin_path
     assert_response :success

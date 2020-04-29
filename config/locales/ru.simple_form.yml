@@ -1,0 +1,10 @@
+ru:
+  simple_form:
+    labels:
+      user:
+        email: 'Е-mail'
+        password: 'Пароль'
+      admin:
+        email: 'Е-mail'
+        password: 'Пароль'
+  

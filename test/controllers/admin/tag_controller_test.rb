@@ -3,6 +3,8 @@ require 'test_helper'
 class Admin::TagsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @tag = create :tag
+    admin = create :admin
+    sign_in_as_admin(admin)
   end
 
   test "should get new tags" do

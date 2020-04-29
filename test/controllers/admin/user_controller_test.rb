@@ -1,9 +1,12 @@
 require 'test_helper'
 
 class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
-  test 'should get index users' do
-    create :respondent
+  setup do
+    admin = create :admin
+    sign_in_as_admin(admin)
+  end
 
+  test 'should get index users' do
     get admin_users_path
     assert_response :success
   end
