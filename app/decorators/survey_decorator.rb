@@ -1,6 +1,4 @@
 class SurveyDecorator < ApplicationDecorator
-  delegate_all
-
   decorates_association :user
 
   def created_at
