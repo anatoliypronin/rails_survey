@@ -3,6 +3,8 @@ require "test_helper"
 class Admin::QuestionsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @question = create :question
+    admin = create :admin
+    sign_in_as_admin(admin)
   end
 
   test "should get index questions" do

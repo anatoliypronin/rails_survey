@@ -64,3 +64,9 @@ Style/RegexpLiteral:
 
 Style/AsciiComments:
   Enabled: false
+
+Layout/EmptyLinesAroundAccessModifier:
+  Enabled: false
+
+Rails/FilePath:
+  Enabled: false

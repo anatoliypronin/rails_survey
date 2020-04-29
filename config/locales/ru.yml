@@ -12,8 +12,16 @@ ru:
   header:
     homepage: Домашняя страница
     admin_title: Админка анкетирования
+    log_out: Выйти
+    users: Пользователи
+    surveys: Опросы
+    questions: Вопросы
+    tags: Теги
 
   admin:
+    sessions:
+      new:
+        sign_in: Войти
     users:
       index:
         control: Управление
@@ -24,7 +32,6 @@ ru:
 
         tags: Теги
         surveys: Опросы
-
     questions:
       index:
         control: Управление
@@ -94,6 +101,7 @@ ru:
         password: Пароль
         phone: Телефон
         type: Тип пользователя
+        state: Состояние
       question:
         position: Позиция
         kind: Тип

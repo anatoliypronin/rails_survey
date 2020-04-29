@@ -3,6 +3,8 @@ require "test_helper"
 class Admin::SurveyControllerTest < ActionDispatch::IntegrationTest
   setup do
     @survey = create :survey
+    admin = create :admin
+    sign_in_as_admin(admin)
   end
 
   test "should get index surveys" do
