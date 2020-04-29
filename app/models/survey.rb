@@ -1,6 +1,6 @@
 class Survey < ApplicationRecord
-  has_many :tags, through: :tag_surveys
   has_many :tag_surveys, dependent: :destroy
+  has_many :tags, through: :tag_surveys
   has_many :questions, dependent: :destroy
   has_many :survey_users, dependent: :destroy
   belongs_to :user

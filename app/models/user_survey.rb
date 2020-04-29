@@ -5,7 +5,7 @@ class UserSurvey < ApplicationRecord
     state :process
     state :completed
 
-    event :complet do
+    event :complete do
       transition [:process] => :completed
     end
 

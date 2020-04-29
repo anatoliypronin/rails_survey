@@ -1,7 +1,5 @@
 class SurveyUser < ApplicationRecord
   belongs_to :user_survey
   belongs_to :survey
-
-  validates :survey_id, uniqueness: { scope: :survey }
-
+  validates :user_survey, uniqueness: { scope: :survey }
 end

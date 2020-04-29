@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_04_26_151134) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["survey_id"], name: "index_survey_users_on_survey_id"
+    t.index ["user_survey_id", "survey_id"], name: "index_survey_users_on_user_survey_id_and_survey_id", unique: true
     t.index ["user_survey_id"], name: "index_survey_users_on_user_survey_id"
   end
 

@@ -5,6 +5,6 @@ class CreateSurveyUsers < ActiveRecord::Migration[6.0]
       t.references :survey, null: false, foreign_key: true
       t.timestamps
     end
-  add_index :user_tags, %i[user_survey_id survey_id], unique: true
+    add_index :survey_users, %i[user_survey_id survey_id], unique: true
   end
 end
