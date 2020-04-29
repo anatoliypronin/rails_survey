@@ -5,7 +5,6 @@ class User < ApplicationRecord
   validates :last_name, presence: true,
                         length: { minimum: 2 }
   validates :type, presence: true
-
   state_machine initial: :registration do
     state :registration
     state :archive
