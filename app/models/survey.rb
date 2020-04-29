@@ -1,6 +1,6 @@
 class Survey < ApplicationRecord
+  has_many :tag_surveys
   has_many :tags, through: :tag_surveys
-  has_many :tag_surveys, dependent: :destroy
   has_many :questions, dependent: :destroy
   belongs_to :user
   validates :title, presence: true
@@ -16,4 +16,16 @@ class Survey < ApplicationRecord
       transition deleted: :active
     end
   end
+  def all_tags
+    self.tags.map(&:title).join(', ')
+  end
+  def all_tags=(title)
+    self.tags = title.split(',').map do |title|
+      Tag.where(title: title.strip).first!
+    end
+  end
+  def get_select_title
+   title = Tag.all.map{ |tag| [tag.title, tag.id] }
+   title.push([])
+ end
 end

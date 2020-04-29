@@ -116,6 +116,7 @@ ru:
     labels:
       survey:
         public: Опубликовать
+        all_tags: Теги
     options:
       question:
         kind:

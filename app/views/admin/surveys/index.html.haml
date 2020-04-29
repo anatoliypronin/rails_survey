@@ -17,7 +17,7 @@
       %td= survey.user.full_name
       %td= hsn(:survey, 'state', survey.state)
       %td= survey.created_at
-      %td 
+      %td
         - survey.state_events.each do |event|
           %br
           = button_to hsen(:survey, 'state', event), {:action => event.to_sym, :id => survey.id}, method: :put, class: 'btn btn-info'
