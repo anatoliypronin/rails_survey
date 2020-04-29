@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
+  namespace :respondent do
+    resource :session, only: %i[new create destroy]
+  end
   namespace :admin do
     root to: "users#index"
+    resource :session, only: %i[new create destroy]
     resources :users, only: %i[index show edit update] do
       member do
         put :in_archive

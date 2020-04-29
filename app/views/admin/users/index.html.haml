@@ -1,17 +1,15 @@
-= link_to t('.add_admin'), new_admin_admin_path, class: 'btn btn-info'
-= link_to t('.add_respondent'), new_admin_respondent_path, class: 'btn btn-info'
-= link_to t('.surveys'), admin_surveys_path, class: 'btn btn-info'
-= link_to t('.questions'), admin_questions_path, class: 'btn btn-info'
-= link_to t('.tags'), admin_tags_path, class: 'btn btn-info'
+= link_to t('.add_admin'), new_admin_admin_path, class: 'btn btn-info m-2'
+= link_to t('.add_respondent'), new_admin_respondent_path, class: 'btn btn-info m-2'
+
 %table.table.table-hover
   %tr
-    %th= han(:user,:id)
+    %th= han(:user, :id)
     %th= han(:user, :first_name)
     %th= han(:user, :last_name)
-    %th= han(:user,:type)
-    %th= han(:user,:email)
-    %th= han(:user,:phone)
-    %th= han(:user,:state)
+    %th= han(:user, :type)
+    %th= han(:user, :email)
+    %th= han(:user, :phone)
+    %th= han(:user, :state)
     %th= t('.control')
   - @users.each do |user|
     %tr
@@ -23,7 +21,8 @@
       %td= user.phone
       %td= hsn(:user, 'state', user.state)
       %td
-        = button_to t('.edit'), edit_admin_user_path(user.id), class: 'btn btn-info', method: :get
+        = link_to t('.edit'), edit_admin_user_path(user.id), class: 'btn btn-info m-1 btn-block'
         - user.state_events.each do |event|
           %br
-          = button_to hsen(:user, 'state', event), {:action => event.to_sym, :id => user.id}, method: :put, class: 'btn btn-info'
+          = link_to hsen(:user, 'state', event), {:action => event.to_sym, :id => user.id}, method: :put, class: 'btn btn-info m-1 btn-block'
+          
