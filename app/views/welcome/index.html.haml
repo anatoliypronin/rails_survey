@@ -1,0 +1,14 @@
+%h2= t('.public_surveys')
+%br
+%table.table.table-striped
+  %tr
+    %th= han(:survey,:title)
+    %th= han(:survey,:user)
+    %th= han(:survey,:state)
+    %th= han(:survey,:created_at)
+  - @surveys.each do |survey|
+    %tr
+      %td= survey.title
+      %td= survey.user.full_name
+      %td= hsn(:survey, 'state', survey.state)
+      %td= survey.created_at
