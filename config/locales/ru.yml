@@ -58,9 +58,9 @@ ru:
         user: Автор
         state: Состояние
         created_at: Дата создания
-   welcome:
-       index:
-         public_surveys: Публичные опросы
+  welcome:
+      index:
+        public_surveys: Публичные опросы
          
   activerecord:
     state_machines:
