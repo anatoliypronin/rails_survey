@@ -8,6 +8,7 @@ AllCops:
     - 'node_modules/**/*'
     - 'tmp/**/*'
     - 'config/environment.rb'
+    - 'vendor/**/*'
 
 Rails:
   Enabled: true
