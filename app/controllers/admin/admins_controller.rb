@@ -7,7 +7,6 @@ class Admin::AdminsController < Admin::ApplicationController
     @admin = Admin.new(admin_attrs)
 
     if @admin.save
-      AdminMailer.welcome_email(@admin).deliver_now
       redirect_to admin_users_path
     else
       render action: :new
