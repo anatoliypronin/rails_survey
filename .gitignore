@@ -27,3 +27,6 @@ yarn-debug.log*
 .idea/
 .generators 
 .rakeTasks
+
+# Ignore vim backup files
+*.swp
