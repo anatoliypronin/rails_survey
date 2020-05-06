@@ -26,7 +26,7 @@ class Admin::VariantsController < Admin::ApplicationController
   private
 
   def variant_attrs
-    params.require(:variant).permit(:title)
+    params.require(:variant).permit(:title, :question_id)
   end
 
 end
