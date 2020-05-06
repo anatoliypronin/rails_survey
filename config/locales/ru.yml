@@ -104,7 +104,7 @@ ru:
         public: Опубликован
         user: Автор
         created_at: Дата создания
-        all_tags: Тег
+        tags: Тег
 
   enumerize:
     question:
@@ -117,7 +117,7 @@ ru:
     labels:
       survey:
         public: Опубликовать
-        all_tags: Теги
+        tags: Теги
     options:
       question:
         kind:

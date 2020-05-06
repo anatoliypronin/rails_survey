@@ -16,7 +16,7 @@ class Admin::TagsController < Admin::ApplicationController
       render action: :new
     end
   end
-  
+
   def destroy
     tag = Tag.find(params[:id])
     tag.destroy
@@ -26,6 +26,6 @@ class Admin::TagsController < Admin::ApplicationController
   private
 
   def tag_attrs
-    params.require(:tag).permit(:title)
+    params.require(:tag).permit(:title, survey_ids: [])
   end
 end

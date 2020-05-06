@@ -68,6 +68,6 @@ class Admin::SurveysController < Admin::ApplicationController
   private
 
   def survey_attrs
-    params.require(:survey).permit(:title, :public, :state_event, :user_id, :all_tags)
+    params.require(:survey).permit(:title, :public, :state_event, :user_id, tag_ids: [])
   end
 end

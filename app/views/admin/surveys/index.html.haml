@@ -16,7 +16,7 @@
       %td= survey.title
       %td= survey.public
       %td= survey.user.full_name
-      %td= survey.all_tags
+      %td= survey.tags.map(&:title).join(', ')
       %td= hsn(:survey, 'state', survey.state)
       %td= survey.created_at
       %td

@@ -16,14 +16,4 @@ class Survey < ApplicationRecord
       transition deleted: :active
     end
   end
-  def all_tags
-    self.tags.map(&:title).join(", ")
-  end
-  
-  def all_tags=(title)
-    self.tags = title.split(',').map do |t|
-      title = Tag.find(t)
-      Tag.where(title: title.title).first!
-    end
-  end
 end
