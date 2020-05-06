@@ -18,8 +18,9 @@ class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should post create variant" do
-    variant_attrs = attributes_for :variant
-    # variant_attrs[:question_id] = @variant.question_id
+    variant_attrs = (FactoryBot.build :variant).attributes.symbolize_keys
+    variant_attrs[:question_id] = @variant.question_id
+
     post admin_variants_path, params: { variant: variant_attrs }
     assert_response :redirect
 
@@ -29,9 +30,9 @@ class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
 
   test "should not post create variant" do
     variant_attrs = attributes_for :variant, title: nil
-    variant_attrs[:question_id] = @variant.question_id
+
     post admin_variants_path, params: { variant: variant_attrs }
-    assert_response :redirect
+    assert_response :success
 
     variant = Variant.find_by(title: variant_attrs[:title])
     assert_nil variant
@@ -43,5 +44,21 @@ class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
 
     assert_not Variant.exists?(@variant.id)
   end
+
+  test "should get edit page" do
+    get edit_admin_variant_path(@variant.id)
+    assert_response :success
+  end
+
+  test "should put update client" do
+    attrs = {}
+
+    attrs[:title] = generate :title
+    put admin_variant_path(@variant.id), params: { variant: attrs }
+
+    @variant.reload
+    assert_equal attrs[:title], @variant.title
+  end
+
 
 end

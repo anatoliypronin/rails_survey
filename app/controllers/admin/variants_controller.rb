@@ -17,6 +17,20 @@ class Admin::VariantsController < Admin::ApplicationController
     end
   end
 
+  def edit
+    @variant = Variant.find(params[:id])
+  end
+
+  def update
+    @variant = Variant.find(params[:id])
+
+    if @variant.update(variant_attrs)
+      redirect_to action: :index
+    else
+      render action: :edit
+    end
+  end
+ 
   def destroy
     variant = Variant.find(params[:id])
     variant.destroy

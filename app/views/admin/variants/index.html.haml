@@ -3,12 +3,13 @@
 %table.table.table-hover
   %tr
     %th= han(:variant, :id)
-    %th= han(:variant, :title)
     %th= han(:variant, :question)
+    %th= han(:variant, :title)
+    %th= t('.control')
   - @variants.each do |variant|
     %tr
       %td= variant.id
-      %td= variant.title
       %td= variant.question.title
-      %td= button_to t('.delete'), admin_variant_path(variant.id), method: :delete, class: 'btn btn-info'
-
+      %td= variant.title
+      %td= link_to t('.edit'), edit_admin_variant_path(variant), class: 'btn btn-info'
+      %td= button_to t('.delete'), admin_variant_path(variant), method: :delete, class: 'btn btn-info'

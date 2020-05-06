@@ -7,7 +7,8 @@ Dir[Rails.root.join('test/support/**/*.rb')].sort.each { |f| require f }
 class ActiveSupport::TestCase
   include FactoryBot::Syntax::Methods
   include AuthHelper
-  parallelize(workers: :number_of_processors)
+  # parallelize(workers: :number_of_processors)
+  parallelize(workers: 1)
 end
 
 class ActionDispatch::IntegrationTest
