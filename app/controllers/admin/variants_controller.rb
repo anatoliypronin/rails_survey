@@ -30,7 +30,7 @@ class Admin::VariantsController < Admin::ApplicationController
       render action: :edit
     end
   end
- 
+
   def destroy
     variant = Variant.find(params[:id])
     variant.destroy
@@ -42,5 +42,4 @@ class Admin::VariantsController < Admin::ApplicationController
   def variant_attrs
     params.require(:variant).permit(:title, :question_id)
   end
-
 end

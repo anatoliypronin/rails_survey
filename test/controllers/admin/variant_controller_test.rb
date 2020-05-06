@@ -59,6 +59,4 @@ class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
     @variant.reload
     assert_equal attrs[:title], @variant.title
   end
-
-
 end
