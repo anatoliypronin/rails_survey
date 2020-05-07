@@ -77,4 +77,11 @@ class Admin::SurveyControllerTest < ActionDispatch::IntegrationTest
     @survey.reload
     assert_equal @survey.state, 'active'
   end
+  test 'should update survey with tags' do
+    @tag = create :tag
+    attrs_survey = attributes_for :survey
+    attrs_survey[:tag_ids] = [@tag.id]
+    put admin_survey_path(@survey), params: { survey: attrs_survey }
+    assert @survey.tags.include?(@tag)
+  end
 end
