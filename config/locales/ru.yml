@@ -38,6 +38,9 @@ ru:
         control: Управление
         delete: Удалить
         add_question: Добавить Вопрос
+      show:
+        destroy: Удалить
+        edit: Изменить
 
     variants:
       index:
@@ -59,6 +62,8 @@ ru:
         control: Управление
         show: Просмотр
       show:
+        control: Управление
+        add_question: Добавить вопрос
         show: Просмотр
         edit: Редактировать
         back: Назад

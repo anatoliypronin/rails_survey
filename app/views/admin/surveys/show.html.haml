@@ -14,4 +14,24 @@
 %br
   = button_to t('.edit'), edit_admin_survey_path(@survey), class: 'btn btn-info', method: :get
   = button_to t('.destroy'), admin_survey_path(@survey), class: 'btn btn-info', method: :delete
-= button_to t('.back'), admin_surveys_path, class: 'btn btn-primary btn-sm', method: :get
+  = button_to t('.back'), admin_surveys_path, class: 'btn btn-primary btn-sm', method: :get
+
+= link_to t('.add_question'), new_admin_question_path(@survey), class: 'btn btn-info'
+%table.table.table-hover
+  %tr
+    %th= han(:question,:id)
+    %th= han(:question,:title)
+    %th= han(:question,:position)
+    %th= han(:question,:kind)
+    %th= han(:question,:survey)
+    %th= t('.control')
+  - @survey.questions.each do |question|
+    %tr
+      %td= question.id
+      %td= question.title
+      %td= question.position
+      %td= question.kind_text
+      %td= question.survey.title
+
+      %td= link_to t('.show'), admin_question_path(question.id), class: 'btn btn-info'
+      %td= button_to t('.destroy'), admin_question_path(question.id), method: :delete, class: 'btn btn-info'

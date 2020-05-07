@@ -1,4 +1,4 @@
-= simple_form_for @question, url: admin_questions_path(survey: @survey.id) do |f|
+= simple_form_for @question, url: admin_question_path(@question.id) do |f|
   = f.input :title
   = f.input :position
   = f.select :kind, Question.kind.options

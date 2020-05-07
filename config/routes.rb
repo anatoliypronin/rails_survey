@@ -14,8 +14,8 @@ Rails.application.routes.draw do
     end
     resources :admins, only: %i[new create]
     resources :respondents, only: %i[new create]
-    resources :questions, only: %i[index new create destroy]
-    resources :variants, only: %i[index new create destroy edit update]
+    resources :questions, only: %i[index new create destroy show]
+    resources :variants, only: %i[index new create destroy edit update show]
     resources :tags, only: %i[index new create destroy]
     resources :surveys, only: %i[index new create show edit update destroy] do
       member do

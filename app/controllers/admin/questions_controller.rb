@@ -5,10 +5,24 @@ class Admin::QuestionsController < Admin::ApplicationController
 
   def new
     @question = Question.new
+    @survey = Survey.find(params[:survey])
+  end
+
+  def edit
+    @question = Question.new(question_attrs)
+  end
+
+  def show
+    @question = Question.find(params[:id])
   end
 
   def create
     @question = Question.new(question_attrs)
+    @survey = Survey.find(params[:survey])
+
+    if @survey
+      @question.survey = @survey
+    end
 
     if @question.save
       redirect_to admin_questions_path
