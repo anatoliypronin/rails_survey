@@ -1,4 +1,7 @@
 # rails_survey
+[![Build Status](https://travis-ci.org/anatoliypronin/rails_survey.svg?branch=develop)](https://travis-ci.org/anatoliypronin/rails_survey)
+[![Coverage Status](https://coveralls.io/repos/github/anatoliypronin/rails_survey/badge.svg?branch=develop)](https://coveralls.io/github/anatoliypronin/rails_survey?branch=develop)
+
 Сервис "Анкетирование"
 
 Команда: Аблязов Пётр, Макиенко Александр, Медведева Антонида, Кунин Михаил
