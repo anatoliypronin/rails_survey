@@ -23,6 +23,15 @@ class Admin::TagsController < Admin::ApplicationController
     redirect_to action: :index
   end
 
+  def update
+    @tag = Tag.find(params[:id])
+    if @tag.update(tag_attrs)
+      redirect_to action: :index
+    else
+      render action: :edit
+    end
+  end
+
   private
 
   def tag_attrs
