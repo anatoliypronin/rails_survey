@@ -121,6 +121,7 @@ ru:
         public: Опубликован
         user: Автор
         created_at: Дата создания
+        tags: Тег
 
   enumerize:
     question:
@@ -133,6 +134,7 @@ ru:
     labels:
       survey:
         public: Опубликовать
+        tags: Теги
     options:
       question:
         kind:
