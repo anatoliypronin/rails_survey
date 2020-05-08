@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :respondents, only: %i[new create]
     resources :questions, only: %i[index new create destroy]
     resources :variants, only: %i[index new create destroy edit update]
-    resources :tags, only: %i[index new create destroy]
+    resources :tags
     resources :surveys, only: %i[index new create show edit update destroy] do
       member do
         put :del

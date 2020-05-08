@@ -134,6 +134,7 @@ ru:
         public: Опубликован
         user: Автор
         created_at: Дата создания
+        tags: Тег
       variant:
         question: Вопрос
 
@@ -148,6 +149,7 @@ ru:
     labels:
       survey:
         public: Опубликовать
+        tags: Теги
     options:
       question:
         kind:
