@@ -5,7 +5,7 @@ class Admin::QuestionsController < Admin::ApplicationController
 
   def new
     @question = Question.new
-    @survey = Survey.find(params[:survey])
+    @survey = Survey.find(params[:survey_id])
   end
 
   def edit
@@ -25,7 +25,7 @@ class Admin::QuestionsController < Admin::ApplicationController
     end
 
     if @question.save
-      redirect_to admin_questions_path
+      redirect_to admin_survey_questions_path(@survey.id)
     else
       render action: :new
     end
@@ -33,8 +33,14 @@ class Admin::QuestionsController < Admin::ApplicationController
 
   def destroy
     question = Question.find(params[:id])
+    @survey = Survey.find(params[:survey])
+
+    if @survey
+      @question.survey = @survey
+    end
+
     question.destroy
-    redirect_to action: :index
+    redirect_to admin_survey_questions_path
   end
 
   private

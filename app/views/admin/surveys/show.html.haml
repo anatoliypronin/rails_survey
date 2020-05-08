@@ -16,7 +16,7 @@
   = button_to t('.destroy'), admin_survey_path(@survey), class: 'btn btn-info', method: :delete
   = button_to t('.back'), admin_surveys_path, class: 'btn btn-primary btn-sm', method: :get
 
-= link_to t('.add_question'), new_admin_question_path(@survey), class: 'btn btn-info'
+= link_to t('.add_question'), new_admin_survey_question_path(@survey), class: 'btn btn-info'
 %table.table.table-hover
   %tr
     %th= han(:question,:id)
