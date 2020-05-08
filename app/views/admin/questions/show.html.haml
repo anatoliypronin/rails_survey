@@ -4,6 +4,7 @@
   %tr
     %th= han(:variant, :title)
     %th= t('.control')
+    =link_to t('.add_variant'), new_admin_question_variant_path(@question)
   - @question.variants.each do |variant|
     %tr
       %td= variant.title
