@@ -7,11 +7,20 @@ class Admin::VariantsController < Admin::ApplicationController
     @variant = Variant.new
   end
 
+  def show
+    @variant = Variant.find(params[:id])
+  end
+
   def create
     @variant = Variant.new(variant_attrs)
+    @question = Question.find(params[:question_id])
+
+    if @question
+      @variant.question = @question
+    end
 
     if @variant.save
-      redirect_to admin_variants_path
+      redirect_to admin_question_path(@question)
     else
       render action: :new
     end
@@ -25,16 +34,17 @@ class Admin::VariantsController < Admin::ApplicationController
     @variant = Variant.find(params[:id])
 
     if @variant.update(variant_attrs)
-      redirect_to action: :index
+      redirect_to admin_question_path(@variant.question_id)
     else
       render action: :edit
     end
   end
 
   def destroy
-    variant = Variant.find(params[:id])
-    variant.destroy
-    redirect_to action: :index
+    @variant = Variant.find(params[:id])
+    @variant.destroy
+
+    redirect_to admin_question_path(@variant.question_id)
   end
 
   private
