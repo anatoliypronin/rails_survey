@@ -14,13 +14,14 @@ Rails.application.routes.draw do
     end
     resources :admins, only: %i[new create]
     resources :respondents, only: %i[new create]
-    resources :tags, only: %i[index new create destroy]
-
     resources :surveys, only: %i[index new create show edit update destroy], shallow: true do
       resources :questions, only: %i[index new create destroy show], shallow: true do
         resources :variants, only: %i[index new create destroy edit update show]
       end
 
+    resources :questions, only: %i[index new create destroy]
+    resources :tags
+    resources :surveys, only: %i[index new create show edit update destroy] do
       member do
         put :del
         put :restore

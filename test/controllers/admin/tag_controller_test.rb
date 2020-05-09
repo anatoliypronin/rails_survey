@@ -38,7 +38,14 @@ class Admin::TagsControllerTest < ActionDispatch::IntegrationTest
   test "should delete destroy tag" do
     delete admin_tag_path(@tag)
     assert_response :redirect
-
     assert_not Tag.exists?(@tag.id)
+  end
+
+  test 'should update survey with tags' do
+    @survey = create :survey
+    attrs_tag = attributes_for :tag
+    attrs_tag[:survey_ids] = [@survey.id]
+    put admin_tag_path(@tag), params: { tag: attrs_tag }
+    assert @tag.surveys.include?(@survey)
   end
 end

@@ -30,3 +30,5 @@ yarn-debug.log*
 
 # Ignore vim backup files
 *.swp
+
+coverage
