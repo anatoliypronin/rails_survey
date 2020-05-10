@@ -17,6 +17,7 @@ ru:
     users: Пользователи
     surveys: Опросы
     questions: Вопросы
+    variants: Варианты
     tags: Теги
 
   admin:
@@ -37,6 +38,14 @@ ru:
         control: Управление
         delete: Удалить
         add_question: Добавить Вопрос
+
+    variants:
+      index:
+        control: Управление
+        question: Вопрос
+        edit: Изменить
+        delete: Удалить
+        add_variant: Добавить вариант
 
     tags:
       index:
@@ -102,6 +111,10 @@ ru:
       user_survey:
         user: Пользователь
         state: Состояние
+      variant:
+        one: Вариант
+        other: Варианты
+
     attributes:
       user:
         first_name: Имя
@@ -122,6 +135,8 @@ ru:
         user: Автор
         created_at: Дата создания
         tags: Тег
+      variant:
+        question: Вопрос
 
   enumerize:
     question:
