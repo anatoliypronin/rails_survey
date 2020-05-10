@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin::TagsControllerTest < ActionDispatch::IntegrationTest
+class Web::Admin::TagsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @tag = create :tag
     admin = create :admin

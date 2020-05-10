@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
+class Web::Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @variant = create :variant
     admin = create :admin
