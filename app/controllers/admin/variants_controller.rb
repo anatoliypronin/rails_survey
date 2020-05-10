@@ -23,7 +23,7 @@ class Admin::VariantsController < Admin::ApplicationController
 
   def update
     @variant = Variant.find(params[:id])
- 
+
     if @variant.update(variant_attrs)
       redirect_to action: :index
     else
