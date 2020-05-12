@@ -18,14 +18,13 @@ Rails.application.routes.draw do
       resources :questions, only: %i[index new create destroy show], shallow: true do
         resources :variants, only: %i[index new create destroy edit update show]
       end
-
-    resources :questions, only: %i[index new create destroy]
-    resources :tags
-    resources :surveys, only: %i[index new create show edit update destroy] do
       member do
         put :del
         put :restore
       end
+    end
+
+    resources :tags
     end
   end
 end
