@@ -21,6 +21,6 @@
       %td= survey.created_at
       %td
         - survey.state_events.each do |event|
-          %br
           = link_to t('.show'), admin_survey_path(survey.id) , class: 'btn btn-info'
+          %br
           = button_to hsen(:survey, 'state', event), {:action => event.to_sym, :id => survey.id}, method: :put, class: 'btn btn-info'

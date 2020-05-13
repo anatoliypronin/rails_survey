@@ -39,8 +39,11 @@ ru:
         delete: Удалить
         add_question: Добавить Вопрос
       show:
+        add_variant: Добавить вариант
+        show: Просмотр
         destroy: Удалить
         edit: Изменить
+        control: Управление
 
     variants:
       index:
@@ -71,6 +74,7 @@ ru:
         public: Опубликован
         user: Автор
         state: Состояние
+        tags: Тэги
         created_at: Дата создания
   welcome:
       index:
@@ -118,7 +122,7 @@ ru:
         state: Состояние
       variant:
         one: Вариант
-        other: Варианты
+        other: эарианты
 
     attributes:
       user:
@@ -137,9 +141,10 @@ ru:
         title: Наименование
       survey:
         public: Опубликован
+        tag: Тэг
         user: Автор
         created_at: Дата создания
-        tags: Тег
+        tags: Тэги
       variant:
         question: Вопрос
 

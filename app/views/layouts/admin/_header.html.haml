@@ -8,6 +8,10 @@
         = link_to t('header.surveys'), admin_surveys_path, class: 'nav-link'
       %li.nav-item.active
         = link_to t('header.tags'), admin_tags_path, class: 'nav-link'
+      %li.nav-item.active
+        = link_to t('header.questions'), admin_survey_questions_path(1), class: 'nav-link'
+      %li.nav-item.active
+        = link_to t('header.variants'), admin_question_variants_path(1), class: 'nav-link'
     - if current_user
       %div
         %div{style: "color: white"}= current_user.email 

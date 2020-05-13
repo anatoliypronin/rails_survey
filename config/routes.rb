@@ -12,8 +12,10 @@ Rails.application.routes.draw do
         put :restore
       end
     end
+
     resources :admins, only: %i[new create]
     resources :respondents, only: %i[new create]
+
     resources :surveys, only: %i[index new create show edit update destroy], shallow: true do
       resources :questions, only: %i[index new create destroy show], shallow: true do
         resources :variants, only: %i[index new create destroy edit update show]
@@ -24,7 +26,8 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :questions, only: %i[index]
+    resources :variants, only: %i[index]
     resources :tags
-    end
   end
 end
