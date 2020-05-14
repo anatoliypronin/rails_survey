@@ -1,4 +1,4 @@
-class Admin::AdminsController < Admin::ApplicationController
+class Web::Admin::AdminsController < Web::Admin::ApplicationController
   def new
     @admin = Admin.new
   end

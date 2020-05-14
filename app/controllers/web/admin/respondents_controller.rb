@@ -1,4 +1,4 @@
-class Admin::RespondentsController < Admin::ApplicationController
+class Web::Admin::RespondentsController < Web::Admin::ApplicationController
   def new
     @respondent = Respondent.new
   end

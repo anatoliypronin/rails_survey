@@ -1,4 +1,4 @@
-class Admin::TagsController < Admin::ApplicationController
+class Web::Admin::TagsController < Web::Admin::ApplicationController
   def index
     @tags = Tag.all
   end

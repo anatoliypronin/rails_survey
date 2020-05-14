@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin::SessionsControllerTest < ActionDispatch::IntegrationTest
+class Web::Admin::SessionsControllerTest < ActionDispatch::IntegrationTest
   test 'should get new admin session page' do
     get new_admin_session_path
     assert_response :success
