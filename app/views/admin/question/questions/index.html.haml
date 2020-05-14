@@ -1,0 +1,20 @@
+%table.table.table-hover
+  %tr
+    %th= han(:question,:id)
+    %th= han(:question,:title)
+    %th= han(:question,:position)
+    %th= han(:question,:kind)
+    %th= han(:question,:survey)
+    %th= t('.control')
+  - @questions.each do |question|
+    %tr
+      %td= question.id
+      %td= question.title
+      %td= question.position
+      %td= question.kind_text
+      %td= question.survey.title
+      %td 
+        = link_to t('.show'), admin_question_path(question.id), class: 'btn btn-info'
+        %br
+        = button_to t('.destroy'), admin_question_path(question.id), method: :delete, class: 'btn btn-info'
+

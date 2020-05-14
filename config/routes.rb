@@ -26,7 +26,9 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :questions, only: %i[index]
+    scope module: :question do
+      resources :questions, only: %i[index]
+    end
     resources :variants, only: %i[index]
     resources :tags
   end
