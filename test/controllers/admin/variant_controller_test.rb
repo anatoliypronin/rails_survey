@@ -8,12 +8,12 @@ class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get index page" do
-    get admin_variants_path
+    get admin_question_variants_path(@variant.question_id)
     assert_response :success
   end
 
   test "should get new page" do
-    get new_admin_variant_path
+    get new_admin_question_variant_path(@variant.question_id)
     assert_response :success
   end
 
@@ -21,7 +21,7 @@ class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
     variant_attrs = (FactoryBot.build :variant).attributes.symbolize_keys
     variant_attrs[:question_id] = @variant.question_id
 
-    post admin_variants_path, params: { variant: variant_attrs }
+    post admin_question_variants_path(@variant.question), params: { variant: variant_attrs }
     assert_response :redirect
 
     variant = Variant.last
@@ -31,7 +31,7 @@ class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
   test "should not post create variant" do
     variant_attrs = attributes_for :variant, title: nil
 
-    post admin_variants_path, params: { variant: variant_attrs }
+    post admin_question_variants_path(@variant.question_id), params: { variant: variant_attrs }
     assert_response :success
 
     variant = Variant.find_by(title: variant_attrs[:title])
@@ -46,7 +46,7 @@ class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit page" do
-    get edit_admin_variant_path(@variant.id)
+    get edit_admin_variant_path(@variant)
     assert_response :success
   end
 
@@ -54,7 +54,7 @@ class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
     attrs = {}
 
     attrs[:title] = generate :title
-    put admin_variant_path(@variant.id), params: { variant: attrs }
+    put admin_variant_path(@variant), params: { variant: attrs }
 
     @variant.reload
     assert_equal attrs[:title], @variant.title
