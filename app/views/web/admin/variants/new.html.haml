@@ -1,5 +1,3 @@
-= simple_form_for @variant, url: admin_variants_path do |f|
-  = f.association :question, include_blank: false
+= simple_form_for @variant, url: admin_question_variants_path do |f|
   = f.input :title
   = f.button :submit, class: 'btn btn-info'
-= link_to t('.back'), admin_variants_path, class: 'btn btn-info'
