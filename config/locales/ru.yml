@@ -128,7 +128,7 @@ ru:
         state: Состояние
       variant:
         one: Вариант
-        other: эарианты
+        other: Варианты
 
     attributes:
       user:
@@ -147,7 +147,6 @@ ru:
         title: Наименование
       survey:
         public: Опубликован
-        tag: Тэг
         user: Автор
         created_at: Дата создания
         tags: Тэги

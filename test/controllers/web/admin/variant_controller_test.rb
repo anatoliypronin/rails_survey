@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
+class Web::Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @variant = create :variant
     admin = create :admin
@@ -18,8 +18,8 @@ class Admin::VariantsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should post create variant" do
-    variant_attrs = (FactoryBot.build :variant).attributes.symbolize_keys
-    variant_attrs[:question_id] = @variant.question_id
+    question = create :question
+    variant_attrs = attributes_for :variant, question_id: question.id
 
     post admin_question_variants_path(@variant.question), params: { variant: variant_attrs }
     assert_response :redirect

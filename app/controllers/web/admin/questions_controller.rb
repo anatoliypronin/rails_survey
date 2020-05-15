@@ -1,4 +1,4 @@
-class Admin::QuestionsController < Admin::ApplicationController
+class Web::Admin::QuestionsController < Web::Admin::ApplicationController
   def index
     @questions = Question.all
   end

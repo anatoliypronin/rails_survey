@@ -1,4 +1,4 @@
-class Admin::SurveysController < Admin::ApplicationController
+class Web::Admin::SurveysController < Web::Admin::ApplicationController
   def index
     @surveys = Survey.all.decorate
   end
