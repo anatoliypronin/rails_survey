@@ -21,6 +21,12 @@ ru:
     tags: Теги
 
   admin:
+    question:
+      questions:
+        index:
+          control: Управление
+          destroy: Удалить
+          show: Просмотр
     sessions:
       new:
         sign_in: Войти
