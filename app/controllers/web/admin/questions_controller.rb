@@ -19,9 +19,7 @@ class Web::Admin::QuestionsController < Web::Admin::ApplicationController
     @question = Question.new(question_attrs)
     @survey = Survey.find(params[:survey_id])
 
-    if @survey
-      @question.survey = @survey
-    end
+    @question.survey = @survey if @survey
 
     if @question.save
       redirect_to admin_survey_path(@survey)

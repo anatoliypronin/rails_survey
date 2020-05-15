@@ -15,9 +15,7 @@ class Web::Admin::VariantsController < Web::Admin::ApplicationController
     @variant = Variant.new(variant_attrs)
     @question = Question.find(params[:question_id])
 
-    if @question
-      @variant.question = @question
-    end
+    @variant.question = @question if @question
 
     if @variant.save
       redirect_to admin_question_path(@question)
