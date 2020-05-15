@@ -1,5 +1,4 @@
 = simple_form_for @variant, url: admin_variant_path(@variant.id) do |f|
-  = f.association :question, include_blank: false
   = f.input :title
   = f.button :submit, class: 'btn btn-info'
-= link_to t('.back'), admin_variants_path, class: 'btn btn-info'
+= link_to t('.back'), admin_variant_path(@variant), class: 'btn btn-info'

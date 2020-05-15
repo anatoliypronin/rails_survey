@@ -6,7 +6,7 @@
     %th= han(:survey,:title)
     %th= han(:survey,:public)
     %th= han(:survey,:user)
-    %th= han(:survey,:all_tags )
+    %th= han(:survey,:tags)
     %th= han(:survey,:state)
     %th= han(:survey,:created_at)
     %th= t('.control')
@@ -21,5 +21,6 @@
       %td= survey.created_at
       %td
         - survey.state_events.each do |event|
+          = link_to t('.show'), admin_survey_path(survey.id) , class: 'btn btn-info'
           %br
           = button_to hsen(:survey, 'state', event), {:action => event.to_sym, :id => survey.id}, method: :put, class: 'btn btn-info'

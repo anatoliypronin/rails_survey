@@ -7,20 +7,32 @@ class Web::Admin::QuestionsController < Web::Admin::ApplicationController
     @question = Question.new
   end
 
+  def edit
+    @question = Question.new(question_attrs)
+  end
+
+  def show
+    @question = Question.find(params[:id])
+  end
+
   def create
     @question = Question.new(question_attrs)
+    @survey = Survey.find(params[:survey_id])
+
+    @question.survey = @survey if @survey
 
     if @question.save
-      redirect_to admin_questions_path
+      redirect_to admin_survey_path(@survey)
     else
       render action: :new
     end
   end
 
   def destroy
-    question = Question.find(params[:id])
-    question.destroy
-    redirect_to action: :index
+    @question = Question.find(params[:id])
+    @question.destroy
+
+    redirect_to admin_survey_path(@question.survey_id)
   end
 
   private
