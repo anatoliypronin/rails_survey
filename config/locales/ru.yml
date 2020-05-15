@@ -20,72 +20,73 @@ ru:
     variants: Варианты
     tags: Теги
 
-  admin:
-    question:
+  web:
+    admin:
+      question:
+        questions:
+          index:
+            control: Управление
+            destroy: Удалить
+            show: Просмотр
+      sessions:
+        new:
+          sign_in: Войти
+      users:
+        index:
+          control: Управление
+          edit: Редактировать
+          add_admin: Добавить Админ
+          add_respondent: Добавить Респондент
+          questions: Вопросы
+          tags: Теги
+          surveys: Опросы
       questions:
         index:
           control: Управление
-          destroy: Удалить
+          delete: Удалить
+          add_question: Добавить Вопрос
+        show:
+          add_variant: Добавить вариант
           show: Просмотр
-    sessions:
-      new:
-        sign_in: Войти
-    users:
-      index:
-        control: Управление
-        edit: Редактировать
-        add_admin: Добавить Админ
-        add_respondent: Добавить Респондент
-        questions: Вопросы
-        tags: Теги
-        surveys: Опросы
-    questions:
-      index:
-        control: Управление
-        delete: Удалить
-        add_question: Добавить Вопрос
-      show:
-        add_variant: Добавить вариант
-        show: Просмотр
-        destroy: Удалить
-        edit: Изменить
-        control: Управление
+          destroy: Удалить
+          edit: Изменить
+          control: Управление
 
-    variants:
-      index:
-        control: Управление
-        question: Вопрос
-        edit: Изменить
-        delete: Удалить
-        add_variant: Добавить вариант
+      variants:
+        index:
+          control: Управление
+          question: Вопрос
+          edit: Изменить
+          delete: Удалить
+          add_variant: Добавить вариант
 
-    tags:
-      index:
-        control: Управление
-        delete: Удалить
-        add_tags: Добавить тег
+      tags:
+        index:
+          control: Управление
+          delete: Удалить
+          add_tags: Добавить тег
 
-    surveys:
-      index:
-        add_survey: Добавить Опрос
-        control: Управление
-        show: Просмотр
-      show:
-        control: Управление
-        add_question: Добавить вопрос
-        show: Просмотр
-        edit: Редактировать
-        back: Назад
-        destroy: Удалить
-        public: Опубликован
-        user: Автор
-        state: Состояние
-        tags: Тэги
-        created_at: Дата создания
-  welcome:
-      index:
-        public_surveys: Публичные опросы
-         
+      surveys:
+        index:
+          add_survey: Добавить Опрос
+          control: Управление
+          show: Просмотр
+        show:
+          control: Управление
+          add_question: Добавить вопрос
+          show: Просмотр
+          edit: Редактировать
+          back: Назад
+          destroy: Удалить
+          public: Опубликован
+          user: Автор
+          state: Состояние
+          tags: Тэги
+          created_at: Дата создания
+    welcome:
+        index:
+          public_surveys: Публичные опросы
+           
   activerecord:
     state_machines:
       user:

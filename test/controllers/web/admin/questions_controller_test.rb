@@ -14,14 +14,14 @@ class Web::Admin::QuestionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new question page" do
-    get new_admin_question_path
+    get new_admin_survey_question_path(@question.survey_id)
     assert_response :success
   end
 
   test "should post create question" do
     question_attrs = attributes_for :question
     question_attrs[:survey_id] = @question.survey_id
-    post admin_questions_path, params: { question: question_attrs }
+    post admin_survey_questions_path(@question.survey), params: { question: question_attrs }
     assert_response :redirect
 
     question = Question.last
@@ -31,7 +31,7 @@ class Web::Admin::QuestionsControllerTest < ActionDispatch::IntegrationTest
   test "should not post create question" do
     question_attrs = attributes_for :question, title: nil
     question_attrs[:survey_id] = @question.survey_id
-    post admin_questions_path, params: { question: question_attrs }
+    post admin_survey_questions_path(@question.survey_id), params: { question: question_attrs }
     assert_response :success
 
     question = Question.find_by(title: question_attrs[:title])
