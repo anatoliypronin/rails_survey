@@ -13,7 +13,7 @@ class Api::V1::SurveysControllerTest < ActionDispatch::IntegrationTest
   test 'should get survey' do
     get api_v1_survey_path(@survey)
     assert_response :success
-
+    p response.parsed_body
     assert_equal response.parsed_body["title"], @survey.title
   end
 end
