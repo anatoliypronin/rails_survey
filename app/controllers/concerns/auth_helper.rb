@@ -18,4 +18,12 @@ module AuthHelper
   def authenticate_admin!
     redirect_to new_admin_session_path unless admin_signed_in?
   end
+
+  def respondent_signed_in?
+    current_user&.is_a? Respondent 
+  end
+
+  def authenticate_respondent!
+    redirect_to new_respondent_session_path unless respondent_signed_in?
+  end
 end

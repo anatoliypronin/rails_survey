@@ -8,5 +8,13 @@ module Support
         }
       }
     end
+
+    def sign_in_as_respondent(respondent)
+      post respondent_session_path, params: {
+        respondent: {
+          phone: respondent.phone
+        }
+      }
+    end
   end
 end
