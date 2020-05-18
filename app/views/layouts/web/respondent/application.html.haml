@@ -1,0 +1,14 @@
+!!!
+%html
+  %head
+    %title= t('header.respondent_title')
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag 'respondent_application', media: :all
+    = javascript_include_tag 'respondent_application'
+    
+  %body
+    .container
+      = render 'layouts/web/respondent/header'
+      = yield
+
