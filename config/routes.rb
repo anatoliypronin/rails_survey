@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
-      resources :surveys, only: %i[index show]
-      resources :questions, only: %i[index]
+      resources :surveys, only: %i[index show] do
+        resources :questions, only: %i[index]
+      end
     end
   end
+
   scope module: :web do
     root to: "welcome#index"
     namespace :respondent do

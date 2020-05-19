@@ -6,7 +6,7 @@ class Api::V1::QuestionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'should get question list' do
-    get api_v1_questions_path
+    get api_v1_survey_questions_path(@question.survey_id)
 
     assert_response :success
   end
