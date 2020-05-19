@@ -1,3 +1,3 @@
 class SurveyIndexSerializer < ActiveModel::Serializer
-  attributes :title, :tags
+  attributes :id, :title, :tags, :created_at, :updated_at
 end
