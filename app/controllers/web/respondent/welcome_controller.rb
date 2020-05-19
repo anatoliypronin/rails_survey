@@ -3,4 +3,3 @@ class Web::Respondent::WelcomeController < Web::Respondent::ApplicationControlle
     @surveys = Survey.where(public: true).decorate
   end
 end
-

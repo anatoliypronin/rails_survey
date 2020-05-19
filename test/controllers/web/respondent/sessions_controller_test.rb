@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class Web::Respondent::SessionsControllerTest < ActionDispatch::IntegrationTest
-
   test 'should get new respondent session page' do
     get new_respondent_session_path
     assert_response :success
@@ -27,4 +26,3 @@ class Web::Respondent::SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_nil session[:user_id]
   end
 end
-

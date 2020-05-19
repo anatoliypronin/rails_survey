@@ -20,7 +20,7 @@ module AuthHelper
   end
 
   def respondent_signed_in?
-    current_user&.is_a? Respondent 
+    current_user&.is_a? Respondent
   end
 
   def authenticate_respondent!

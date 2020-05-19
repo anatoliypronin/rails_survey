@@ -4,9 +4,9 @@ class Web::Respondent::SessionsController < Web::Respondent::ApplicationControll
   def new; end
 
   def create
-    if user = User.find_by(phone: params[:respondent][:phone])
-        user_sign_in(user)
-        redirect_to respondent_root_path
+    if (user = User.find_by(phone: params[:respondent][:phone]))
+      user_sign_in(user)
+      redirect_to respondent_root_path
     else
       render action: :new
     end
