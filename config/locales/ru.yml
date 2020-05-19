@@ -86,7 +86,12 @@ ru:
     welcome:
         index:
           public_surveys: Публичные опросы
-           
+
+    respondent:
+      sessions: 
+        new:
+          sign_in: Войти
+
   activerecord:
     state_machines:
       user:
