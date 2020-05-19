@@ -13,4 +13,4 @@
     - if current_user
       %div
         %div{style: "color: white"}= current_user.email 
-        = link_to t('header.log_out'), root_path, method: :delete 
+        = link_to t('header.log_out'), admin_session_path, method: :delete 
