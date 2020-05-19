@@ -29,11 +29,11 @@ class SurveysList extends React.Component {
     );
   }
 
-  test(){
+  surveys(){
     let table = [];
     const surveys = this.state.surveys;
     for (let survey of surveys) {
-    table.push(<tr><td>{survey.title}</td><td>{this.getTags(survey.tags)}</td><a href={Routes.admin_survey_path(survey.id)}>Перейти</a></tr>);
+    table.push(<tr><td>{survey.title}</td><td>{this.getTags(survey.tags)}</td><a className="btn btn-info" href={Routes.admin_survey_path(survey.id)}>Перейти</a></tr>);
 
     }
     return (
@@ -44,8 +44,8 @@ class SurveysList extends React.Component {
   render () {
     return (
       <React.Fragment>
-      <h1>Surveys</h1>
-      <table>
+      <h2>Публичные опросы</h2>
+      <table className='table table-hover'>
         <thead>
           <tr>
             <th>Name</th>
@@ -54,7 +54,7 @@ class SurveysList extends React.Component {
           </tr>
         </thead>
         <tbody>
-          {this.test()}
+          {this.surveys()}
         </tbody>
       </table>
       </React.Fragment>
