@@ -5,7 +5,7 @@ class Api::V1::QuestionsController < Api::V1::ApplicationController
   end
 
   # def show
-    # question = Question.where().find(params[:id]))
-    # render json: question, serializer: QuestionShowSerializer
+  # question = Question.where().find(params[:id]))
+  # render json: question, serializer: QuestionShowSerializer
   # end
 end
