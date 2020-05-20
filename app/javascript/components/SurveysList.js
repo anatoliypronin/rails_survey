@@ -29,11 +29,20 @@ class SurveysList extends React.Component {
     );
   }
 
+  linkSurvey(survey){
+    window.open(Routes.admin_survey_path(survey.id), '_blank');
+  }
+
   surveys(){
     let table = [];
     const surveys = this.state.surveys;
     for (let survey of surveys) {
-    table.push(<tr><td>{survey.title}</td><td>{this.getTags(survey.tags)}</td><a className="btn btn-info" href={Routes.admin_survey_path(survey.id)}>Перейти</a></tr>);
+    table.push(
+      <tr key={survey.id} onClick={() => this.linkSurvey(survey)}>
+        <td>{survey.title}</td>
+        <td>{this.getTags(survey.tags)}</td>
+      </tr>
+    );
 
     }
     return (
@@ -44,13 +53,14 @@ class SurveysList extends React.Component {
   render () {
     return (
       <React.Fragment>
-      <h2>Публичные опросы</h2>
-      <table className='table table-hover'>
+      <div className='d-flex align-items-center p-3 my-3 rounded box-shadow'>
+        <h2>Публичные опросы</h2>
+      </div>
+      <table className='table table-hover table-dark table-striped'>
         <thead>
           <tr>
             <th>Name</th>
             <th>Tags</th>
-            <th>Control</th>
           </tr>
         </thead>
         <tbody>

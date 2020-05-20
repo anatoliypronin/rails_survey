@@ -1,0 +1,22 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  = link_to t('header.homepage'), root_path, class: 'navbar-brand'
+  %div.collapse.navbar-collapse
+    - if current_user
+      %ul.navbar-nav.mr-auto
+        %li.nav-item.active
+          = link_to t('header.users'), admin_users_path, class: 'nav-link'
+        %li.nav-item.active
+          = link_to t('header.surveys'), admin_surveys_path, class: 'nav-link'
+        %li.nav-item.active
+          = link_to t('header.tags'), admin_tags_path, class: 'nav-link'
+        %li.nav-item.active
+          = link_to t('header.questions'), admin_questions_path, class: 'nav-link'
+      %div
+        %div{style: "color: white"}= current_user.email 
+        = link_to t('header.log_out'), admin_session_path, method: :delete 
+    - else
+      %div
+        = link_to t('header.log_out'), new_admin_session_path, class: 'btn btn-bd-download'
+
+
+        
