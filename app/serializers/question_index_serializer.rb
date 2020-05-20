@@ -1,3 +1,3 @@
 class QuestionIndexSerializer < ActiveModel::Serializer
-  attributes :title
+  attributes :id, :title
 end

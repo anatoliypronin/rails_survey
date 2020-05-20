@@ -3,9 +3,4 @@ class Api::V1::QuestionsController < Api::V1::ApplicationController
     questions = Question.where(survey_id: params[:survey_id])
     render json: questions, each_serializer: QuestionIndexSerializer
   end
-
-  # def show
-  # question = Question.where().find(params[:id]))
-  # render json: question, serializer: QuestionShowSerializer
-  # end
 end
