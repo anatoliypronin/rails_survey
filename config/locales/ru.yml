@@ -21,6 +21,7 @@ ru:
     questions: Вопросы
     variants: Варианты
     tags: Теги
+    my_surveys: Мои опросы
 
   web:
     admin:
