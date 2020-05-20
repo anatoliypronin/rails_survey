@@ -11,6 +11,8 @@ ru:
 
   header:
     homepage: Домашняя страница
+    log_in_respondent: Вход респондента
+    log_in_admin: Вход админа
     admin_title: Админка анкетирования
     welcome_title: Анкетирование
     log_out: Выйти
@@ -86,7 +88,15 @@ ru:
     welcome:
         index:
           public_surveys: Публичные опросы
-           
+
+    respondent:
+      welcome:
+          index:
+            public_surveys: Публичные опросы
+      sessions: 
+        new:
+          sign_in: Войти
+
   activerecord:
     state_machines:
       user:
