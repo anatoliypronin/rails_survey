@@ -1,11 +1,16 @@
 import React from "react"
 import PropTypes from "prop-types"
 import AddPopup from './AddPopup';
+import Table from 'react-bootstrap/Table'
+import Col from 'react-bootstrap/Col'
+
 class SurveysList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       surveys: [],
+      addPopupShow: false,
+      surveyId: null
     }
   };
   fetchSurvey() {
@@ -13,6 +18,16 @@ class SurveysList extends React.Component {
       .then(response => response.json())
       .then(result => this.setState({surveys: result}))
       
+  }
+  handleAddClose = () => {
+    this.setState({ addPopupShow: false });
+  }
+
+  handleAddShow = (surveyId) => {
+    this.setState({ 
+      addPopupShow: true,
+      surveyId: surveyId,
+    });
   }
   
   componentDidMount() {
@@ -30,16 +45,12 @@ class SurveysList extends React.Component {
     );
   }
 
-  linkSurvey(survey){
-    window.open(Routes.admin_survey_path(survey.id), '_blank');
-  }
-
   surveys(){
     let table = [];
     const surveys = this.state.surveys;
     for (let survey of surveys) {
     table.push(
-      <tr key={survey.id} onClick={() => this.linkSurvey(survey)}>
+      <tr key={survey.id} onClick={() => this.handleAddShow(survey.id)}>
         <td>{survey.title}</td>
         <td>{this.getTags(survey.tags)}</td>
       </tr>
@@ -54,10 +65,10 @@ class SurveysList extends React.Component {
   render () {
     return (
       <React.Fragment>
-      <div className='d-flex align-items-center p-3 my-3 rounded box-shadow'>
+      <Col className='d-flex align-items-center p-3 my-3 rounded box-shadow'>
         <h2>Публичные опросы</h2>
-      </div>
-      <table className='table table-hover table-dark table-striped'>
+      </Col>
+      <Table striped hover variant="dark">
         <thead>
           <tr>
             <th>Name</th>
@@ -67,10 +78,11 @@ class SurveysList extends React.Component {
         <tbody>
           {this.surveys()}
         </tbody>
-      </table>
+      </Table>
       <AddPopup
         show = {this.state.addPopupShow}
         onClose={this.handleAddClose}
+        surveyId ={this.state.surveyId}
       />
       </React.Fragment>
     );

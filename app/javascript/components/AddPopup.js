@@ -1,66 +1,44 @@
 import React from 'react';
 import { Modal, Form,  Button, FormGroup, FormLabel , FormControl } from 'react-bootstrap';
+import ListGroup from 'react-bootstrap/ListGroup'
 
 export default class AddPopup extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      task: {
-        name: '',
-        description: '',
-        assignee: {
-          id: null,
-          first_name: null,
-          last_name:  null,
-          email: null
-        }
-      }
+      questions: [],
     }
   };
+
+  componentDidUpdate (prevProps) {
+    if (this.props.surveyId != null && this.props.surveyId !== prevProps.surveyId) {
+      // this.loadQuestions(this.props.surveyId);
+      console.log('loadQuestions')
+    };
+  }
+
   render () {
     return <div>
       <Modal animation={false} show={this.props.show} onHide={this.props.onClose}>
         <Modal.Header closeButton>
           <Modal.Title>
-            New task
+            List Questions
           </Modal.Title>
         </Modal.Header>
 
         <Modal.Body>
-          <Form>
-            <Form.Group controlId="formTaskName">
-              <Form.Label>Task name:</Form.Label>
-              <Form.Control
-                type="text"
-                value={this.state.task.name}
-                placeholder='Set the name for the task'
-                onChange={this.handleNameChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="formDescriptionName">
-              <Form.Label>Task description:</Form.Label>
-              <Form.Control
-                as="textarea"
-                value={this.state.task.description}
-                placeholder='Set the description for the task'
-                onChange={this.handleDecriptionChange}
-              />
-            </Form.Group>
-            <Form.Group controlId="formTaskAssignee">
-              <Form.Label>Assignee:</Form.Label>
-              <UserSelect
-                id="Assignee"
-                isDisabled={false}
-                value={this.state.task.assignee}
-                onChange={this.handleAssigneeChange}
-              />
-            </Form.Group>
-          </Form>
+          <ListGroup>
+            <ListGroup.Item>Cras justo odio</ListGroup.Item>
+            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
+            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
+            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
+            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+          </ListGroup>
         </Modal.Body>
 
         <Modal.Footer>
           <Button onClick={this.props.onClose}>Close</Button>
-          <Button variant="primary" onClick={this.handleCardAdd}>Save changes</Button>
+          <Button>Save changes</Button>
         </Modal.Footer>
       </Modal>
     </div>
