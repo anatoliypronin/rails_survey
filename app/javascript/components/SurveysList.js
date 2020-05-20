@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import AddPopup from './AddPopup';
 class SurveysList extends React.Component {
   constructor(props) {
     super(props);
@@ -67,8 +68,11 @@ class SurveysList extends React.Component {
           {this.surveys()}
         </tbody>
       </table>
+      <AddPopup
+        show = {this.state.addPopupShow}
+        onClose={this.handleAddClose}
+      />
       </React.Fragment>
-      
     );
   }
 }
