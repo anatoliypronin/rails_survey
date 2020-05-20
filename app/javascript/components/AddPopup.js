@@ -9,12 +9,30 @@ export default class AddPopup extends React.Component {
       questions: [],
     }
   };
+  fetchQuestions(surveyId) {
+    return fetch(Routes.api_v1_survey_questions_path({survey_id: surveyId, format: 'json'}))
+      .then(response => response.json())
+      .then(result => this.setState({questions: result}))
+  }
 
   componentDidUpdate (prevProps) {
     if (this.props.surveyId != null && this.props.surveyId !== prevProps.surveyId) {
-      // this.loadQuestions(this.props.surveyId);
+      this.fetchQuestions(this.props.surveyId);
       console.log('loadQuestions')
     };
+  }
+
+  listQuestions(){
+    let list = []
+    const questions = this.state.questions;
+    for (let q of questions) {
+      list.push(
+        <ListGroup.Item variant="primary">{q.title}</ListGroup.Item>
+      );
+    }
+    return (
+      list
+    );
   }
 
   render () {
@@ -28,17 +46,13 @@ export default class AddPopup extends React.Component {
 
         <Modal.Body>
           <ListGroup>
-            <ListGroup.Item>Cras justo odio</ListGroup.Item>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+            {this.listQuestions()}
           </ListGroup>
         </Modal.Body>
 
         <Modal.Footer>
           <Button onClick={this.props.onClose}>Close</Button>
-          <Button>Save changes</Button>
+          <Button>Go</Button>
         </Modal.Footer>
       </Modal>
     </div>

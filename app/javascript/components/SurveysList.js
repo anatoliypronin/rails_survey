@@ -17,7 +17,6 @@ class SurveysList extends React.Component {
     return fetch(Routes.api_v1_surveys_path({format: 'json'}))
       .then(response => response.json())
       .then(result => this.setState({surveys: result}))
-      
   }
   handleAddClose = () => {
     this.setState({ addPopupShow: false });
@@ -34,6 +33,10 @@ class SurveysList extends React.Component {
     this.fetchSurvey();
   }
 
+  componentDidMount() {
+    this.fetchSurvey();
+  }
+
   getTags(tags){
     let result = [];
     for (let tag of tags) {
@@ -41,7 +44,7 @@ class SurveysList extends React.Component {
 
     }
     return (
-      result
+      result.join()
     );
   }
 
