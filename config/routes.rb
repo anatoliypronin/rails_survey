@@ -4,14 +4,17 @@ Rails.application.routes.draw do
       resources :surveys, only: %i[index show] do
         resources :questions, only: %i[index]
       end
+      
+      resource :session, only: :create
     end
   end
 
   scope module: :web do
     root to: "welcome#index"
+
     namespace :respondent do
       root to: "welcome#index"
-      resource :session, only: %i[new create destroy]
+      resource :session, only: %i[new destroy]
     end
 
     namespace :admin do
@@ -42,5 +45,6 @@ Rails.application.routes.draw do
         resources :questions, only: %i[index]
       end
     end
+
   end
 end

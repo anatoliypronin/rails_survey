@@ -33,7 +33,7 @@ gem 'pg'
 gem 'russian', "~> 0.6.0"
 gem 'simple_form'
 gem 'state_machines-activerecord'
-
+gem 'virtus'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
