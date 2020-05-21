@@ -1,5 +1,5 @@
 %h1 Survey Test
-= simple_form_for :answers, url: "#" do |f|
+= simple_form_for :answers, url: respondent_survey_answers_path(@survey.id) do |f|
   - @questions.each do |q|
     - if q.kind == 'input'
       = f.input q.id, label: q.title
