@@ -10,7 +10,9 @@ class SurveysList extends React.Component {
     this.state = {
       surveys: [],
       addPopupShow: false,
-      surveyId: null
+      survey: {
+        questions: [],
+      }
     }
   };
   fetchSurvey() {
@@ -22,10 +24,10 @@ class SurveysList extends React.Component {
     this.setState({ addPopupShow: false });
   }
 
-  handleAddShow = (surveyId) => {
+  handleAddShow = (survey) => {
     this.setState({ 
       addPopupShow: true,
-      surveyId: surveyId,
+      survey: survey
     });
   }
   
@@ -53,7 +55,7 @@ class SurveysList extends React.Component {
     const surveys = this.state.surveys;
     for (let survey of surveys) {
     table.push(
-      <tr key={survey.id} onClick={() => this.handleAddShow(survey.id)}>
+      <tr key={survey.id} onClick={() => this.handleAddShow(survey)}>
         <td>{survey.title}</td>
         <td>{this.getTags(survey.tags)}</td>
       </tr>
@@ -85,7 +87,7 @@ class SurveysList extends React.Component {
       <AddPopup
         show = {this.state.addPopupShow}
         onClose={this.handleAddClose}
-        surveyId ={this.state.surveyId}
+        questions ={this.state.survey.questions}
       />
       </React.Fragment>
     );

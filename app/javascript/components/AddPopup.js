@@ -3,28 +3,8 @@ import { Modal, Form,  Button, FormGroup, FormLabel , FormControl } from 'react-
 import ListGroup from 'react-bootstrap/ListGroup'
 
 export default class AddPopup extends React.Component {
-  constructor(props){
-    super(props)
-    this.state = {
-      questions: [],
-    }
-  };
-  fetchQuestions(surveyId) {
-    return fetch(Routes.api_v1_survey_questions_path({survey_id: surveyId, format: 'json'}))
-      .then(response => response.json())
-      .then(result => this.setState({questions: result}))
-  }
-
-  componentDidUpdate (prevProps) {
-    if (this.props.surveyId != null && this.props.surveyId !== prevProps.surveyId) {
-      this.fetchQuestions(this.props.surveyId);
-      console.log('loadQuestions')
-    };
-  }
-
-  listQuestions(){
+  listQuestions(questions){
     let list = []
-    const questions = this.state.questions;
     for (let q of questions) {
       list.push(
         <ListGroup.Item variant="primary">{q.title}</ListGroup.Item>
@@ -46,7 +26,7 @@ export default class AddPopup extends React.Component {
 
         <Modal.Body>
           <ListGroup>
-            {this.listQuestions()}
+            {this.listQuestions(this.props.questions)}
           </ListGroup>
         </Modal.Body>
 
