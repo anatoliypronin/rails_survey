@@ -1,0 +1,8 @@
+%h1 Survey Test
+= simple_form_for :answers, url: "#" do |f|
+  - @questions.each do |q|
+    - if q.kind == 'input'
+      = f.input q.id, label: q.title
+    - else
+      = f.input q.id, label: q.title, as: q.kind, collection: q.variants, label_method: :title, value_method: :id
+  = f.button :submit, t('.save'), class: 'btn btn-info'
