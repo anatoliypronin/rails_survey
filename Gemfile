@@ -29,7 +29,9 @@ gem 'email_validator'
 gem 'enumerize'
 gem "haml-rails", "~> 2.0"
 gem 'jquery-rails'
+gem "js-routes"
 gem 'pg'
+gem 'react-rails'
 gem 'russian', "~> 0.6.0"
 gem 'simple_form'
 gem 'state_machines-activerecord'

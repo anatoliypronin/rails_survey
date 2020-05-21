@@ -5,4 +5,4 @@
     - if current_user
       %div
         %div{style: "color: white"}= current_user.phone
-        = link_to t('header.log_out'), respondent_session_path, method: :delete 
+        = link_to t('header.log_out'), respondent_session_path, method: :delete, class: 'btn btn-outline-primary'
