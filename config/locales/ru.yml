@@ -10,7 +10,7 @@ ru:
     false: Нет
 
   header:
-    homepage: Домашняя страница
+    homepage: Лучшие опросы
     log_in_respondent: Вход респондента
     log_in_admin: Вход админа
     admin_title: Админка анкетирования
@@ -21,6 +21,7 @@ ru:
     questions: Вопросы
     variants: Варианты
     tags: Теги
+    my_surveys: Мои опросы
 
   web:
     admin:

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
     namespace :respondent do
       root to: "welcome#index"
-      resource :session, only: %i[new destroy]
+      resource :session, only: %i[new create destroy]
     end
 
     namespace :admin do

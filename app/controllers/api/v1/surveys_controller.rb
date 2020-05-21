@@ -1,6 +1,6 @@
 class Api::V1::SurveysController < Api::V1::ApplicationController
   def index
-    surveys = Survey.where(state: :active).order(title: :asc)
+    surveys = Survey.where(state: :active, public: true).order(title: :asc).decorate
     render json: surveys, each_serializer: SurveyIndexSerializer
   end
 

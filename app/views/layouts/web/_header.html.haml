@@ -1,0 +1,23 @@
+%nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+  = link_to t('header.homepage'), root_path, class: 'navbar-brand'
+  %div.collapse.navbar-collapse
+    %ul.navbar-nav.mr-auto.mt-2.mt-lg-0
+      %li.nav-item.active
+    - if current_user
+      %form.form-inline
+        - if admin_signed_in?
+          %div{style: "color: white"}= current_user.email 
+          = link_to t('header.log_out'), admin_session_path, method: :delete, class: 'btn btn-outline-danger'
+        - if respondent_signed_in?
+          %div{style: "color: white"}= current_user.phone 
+          = link_to t('header.log_out'), respondent_session_path, method: :delete, class: 'btn btn-outline-primary'
+    - else
+      %div
+        = link_to t('header.log_in_admin'), new_admin_session_path, class: 'btn btn-danger'
+        = link_to t('header.log_in_respondent'), new_respondent_session_path, class: 'btn btn-primary'
+    %div
+      = link_to t('header.sign_up'), '#', class: 'btn btn-outline-success'
+    
+
+
+        
