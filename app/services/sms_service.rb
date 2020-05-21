@@ -1,8 +1,7 @@
 module SmsService
- TEST_VERIFICATION_CODE = "1234"
+  TEST_VERIFICATION_CODE = "1234".freeze
 
   class << self
-
     def send_sms_code(phone)
       return TEST_VERIFICATION_CODE if Rails.env.test?
 

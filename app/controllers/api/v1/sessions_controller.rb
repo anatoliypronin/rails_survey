@@ -12,20 +12,18 @@ class Api::V1::SessionsController < Api::V1::ApplicationController
       else
         render json: { message: 'incorrect sms code' }, status: :unprocessable_entity
       end
+    elsif sign_in_form.respondent.present?
+      code = SmsService.send_sms_code(sign_in_form.phone)
+      session[:verification_code] = code
+
+      render json: { message: 'Sms sent' }, status: :ok
+
     else
-      if sign_in_form.respondent.present? 
-        code = SmsService.send_sms_code(sign_in_form.phone)
-        session[:verification_code] = code
-
-        render json: { message: 'Sms sent' }, status: :ok
-
-      else
-        render json: { message: 'Client has not found' }, status: :not_found
-      end
+      render json: { message: 'Client has not found' }, status: :not_found
     end
   end
 
-  private 
+  private
 
   def respondent_attrs
     params.require(:respondent).permit(:phone, :sms_code)

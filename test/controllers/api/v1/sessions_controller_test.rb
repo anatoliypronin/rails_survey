@@ -39,7 +39,6 @@ class Api::V1::SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_not session[:user_id]
   end
 
-
   test "should create session for respondent with correct sms code" do
     # Get sms code
     options = { respondent: { phone: @respondent.phone } }
@@ -52,6 +51,4 @@ class Api::V1::SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert session[:user_id]
   end
-
-
 end
