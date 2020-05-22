@@ -6,12 +6,26 @@ class Web::Respondent::AnswersController < Web::Respondent::ApplicationControlle
 
   def create
     answers = params[:answers]
-    p answers
     answers.each do |question_id, answer| 
-      q = Questiion.find(question_id)
-      
-      puts "#{question_id} is #{answer}" 
+      question = Question.find(question_id)
+      if question.kind == 'input'
+        answer_attrs = {
+          question_id: question.id,
+          type: "OtherField",
+          title: answer,
+        }
+        @answer = Answer.new(answer_attrs)
+        @answer.save
+      else
+        answer_attrs = {
+          question_id: question.id,
+          type: "ChoiceField",
+          variant_id: answer,
+        } 
+        @answer = Answer.new(answer_attrs)
+        @answer.save
+      end
     end
-    redirect_to root_path
+    redirect_to respondent_root_path
   end
 end

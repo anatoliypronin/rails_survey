@@ -40,12 +40,14 @@ class Web::Respondent::AnswersControllerTest < ActionDispatch::IntegrationTest
     v6 = create :variant, question_id: q2.id
     v7 = create :variant, question_id: q2.id
 
-    answer_attrs = {q1.id => v1.id, q2.id => [v4.id, v6.id]}
+    answer_attrs = {q1.id => v1.id, q2.id => v2.id}
 
     post respondent_survey_answers_path(s1), params: { answers: answer_attrs }
     assert_response :redirect
-    answer = Answer.last
-    assert_equal answer.survey_id, s1.id
+    answer = Answer.find_by(question_id: q1)
+    assert_equal answer.variant_id, v1.id
+    answer = Answer.find_by(question_id: q2)
+    assert_equal answer.variant_id, v2.id
   end
 
 end
