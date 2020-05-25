@@ -12,6 +12,16 @@ Rails.application.routes.draw do
     namespace :respondent do
       root to: "welcome#index"
       resource :session, only: %i[new create destroy]
+      resources :surveys, only: %i[index new create show edit update destroy], shallow: true do
+        resources :questions, only: %i[index new create destroy show], shallow: true do
+          resources :variants, only: %i[index new create destroy edit update show]
+        end
+
+        member do
+          put :del
+          put :restore
+        end
+      end
     end
 
     namespace :admin do

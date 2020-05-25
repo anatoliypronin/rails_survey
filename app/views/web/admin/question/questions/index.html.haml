@@ -12,7 +12,7 @@
       %td= question.title
       %td= question.position
       %td= question.kind_text
-      %td= question.survey.title
+      %td= link_to question.survey.title, admin_survey_path(question.survey_id)
       %td 
         = link_to t('.show'), admin_question_path(question.id), class: 'btn btn-info'
         %br

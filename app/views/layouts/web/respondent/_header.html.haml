@@ -2,6 +2,8 @@
   = link_to t('header.homepage'), respondent_root_path, class: 'navbar-brand'
   %div.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
+      %li.nav-item.active
+        = link_to t('header.surveys'), respondent_surveys_path, class: 'nav-link'
     - if current_user
       %div
         %div{style: "color: white"}= current_user.phone
