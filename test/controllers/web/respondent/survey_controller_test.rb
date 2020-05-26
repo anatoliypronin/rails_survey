@@ -5,9 +5,7 @@ class Web::Respondent::SurveyControllerTest < ActionDispatch::IntegrationTest
     respondent = create :respondent
     sign_in_as_respondent(respondent)
     @survey = create :survey, user: respondent
-    
   end
-
 
   test "should get index surveys" do
     get respondent_surveys_path

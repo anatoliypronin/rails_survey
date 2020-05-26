@@ -45,4 +45,3 @@ class Web::Respondent::QuestionsControllerTest < ActionDispatch::IntegrationTest
     assert_not Question.exists?(@question.id)
   end
 end
-
