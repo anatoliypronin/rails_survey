@@ -7,6 +7,7 @@ class QuestionList extends React.Component {
     super(props);
     this.state = {
       questions: [],
+      checkedItems: [],
     }
   };
   componentDidMount() {
@@ -23,9 +24,11 @@ class QuestionList extends React.Component {
       check.push(
       <Form.Check 
         type={'radio'}
-        id={`default-radio`}
+        id={`default-radio${variant.id}`}
         name={`formVericalRadios${q.id}`}
         label={variant.title}
+        value={variant.id}
+        onChange={this.handleChangeRadio(q.id)}
       />
       );
     }
@@ -40,8 +43,10 @@ class QuestionList extends React.Component {
       check.push(
       <Form.Check 
         type={'checkbox'}
-        id={`default-radio`}
+        id={`default-checkbox${variant.id}`}
         label={variant.title}
+        value={variant.id}
+        onChange={this.handleChangeCheck(q.id)}
       />
       );
     }
@@ -52,7 +57,7 @@ class QuestionList extends React.Component {
 
   otherType(q){
     return (
-      <Form.Control type="text" />
+      <Form.Control type="text" onChange={this.handleChangeInput(q.id)} />
     );
   }
 
@@ -63,6 +68,44 @@ class QuestionList extends React.Component {
       return this.checkType(q)
     else
       return this.otherType(q)  
+  }
+
+  handleChangeRadio = (question_id) => (e) => {
+    const value = e.target.value;
+    this.setState({
+      answer: {
+        question_id: question_id,
+        variant_id: value
+      }
+    });
+  };
+  handleChangeCheck = (question_id) => (e) => {
+    const value = e.target.value ;
+    const checked = e.target.checked;
+    let items = this.state.checkedItems;
+    if (checked){
+    items.push(value)
+    }else{
+    const index = items.indexOf(value);
+    items.splice(index, 1);
+    }
+    this.setState({
+      checkedItems: items,
+    });
+  };
+  handleChangeInput = (question_id) => (e) => {
+    const value = e.target.value;
+    this.setState({
+      answer: {
+        question_id: question_id,
+        title: value
+      }
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log(this.state.answer);
   }
 
   questionForm(){
@@ -84,7 +127,7 @@ class QuestionList extends React.Component {
     return (
       <React.Fragment>
         <h1>Question Form</h1>
-        <Form>
+        <Form onSubmit={this.handleSubmit}>
           {this.questionForm()}
           <Button variant="primary" type="submit">
             Save

@@ -11,18 +11,16 @@ class Web::Respondent::AnswersController < Web::Respondent::ApplicationControlle
       if question.kind == 'input'
         answer_attrs = {
           question_id: question.id,
-          type: "OtherField",
           title: answer,
         }
-        @answer = Answer.new(answer_attrs)
+        @answer = OtherField.new(answer_attrs)
         @answer.save
       else
         answer_attrs = {
           question_id: question.id,
-          type: "ChoiceField",
           variant_id: answer,
         } 
-        @answer = Answer.new(answer_attrs)
+        @answer = ChoiceField.new(answer_attrs)
         @answer.save
       end
     end
