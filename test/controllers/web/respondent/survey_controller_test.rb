@@ -4,7 +4,8 @@ class Web::Respondent::SurveyControllerTest < ActionDispatch::IntegrationTest
   setup do
     respondent = create :respondent
     sign_in_as_respondent(respondent)
-    @survey = create :survey
+    @survey = create :survey, user: respondent
+    
   end
 
 

@@ -19,7 +19,7 @@ class Web::Respondent::SurveysController < Web::Respondent::ApplicationControlle
   end
 
   def show
-    @survey = Survey.where(user_id: session[:user_id]).find(params[:id]).decorate
+    @survey = Survey.where(user_id: current_user).find(params[:id]).decorate
   end
 
   def edit
