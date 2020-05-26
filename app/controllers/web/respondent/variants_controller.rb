@@ -32,7 +32,7 @@ class Web::Respondent::VariantsController < Web::Respondent::ApplicationControll
     @variant = Variant.find(params[:id])
 
     if @variant.update(variant_attrs)
-      redirect_to admin_question_path(@variant.question_id)
+      redirect_to respondent_question_path(@variant.question_id)
     else
       render action: :edit
     end
@@ -42,7 +42,7 @@ class Web::Respondent::VariantsController < Web::Respondent::ApplicationControll
     @variant = Variant.find(params[:id])
     @variant.destroy
 
-    redirect_to admin_question_path(@variant.question_id)
+    redirect_to respondent_question_path(@variant.question_id)
   end
 
   private
