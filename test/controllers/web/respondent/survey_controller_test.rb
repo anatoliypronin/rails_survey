@@ -41,6 +41,13 @@ class Web::Respondent::SurveyControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "shouldn't get show survey" do
+    @survey = create :survey
+    assert_raises(ActiveRecord::RecordNotFound) do
+      get respondent_survey_path(@survey)
+    end
+  end
+
   test "should fet edit survey page" do
     get edit_respondent_survey_path(@survey)
     assert_response :success
@@ -79,6 +86,7 @@ class Web::Respondent::SurveyControllerTest < ActionDispatch::IntegrationTest
     @survey.reload
     assert_equal @survey.state, 'active'
   end
+
   test 'should update survey with tags' do
     @tag = create :tag
     attrs_survey = attributes_for :survey
