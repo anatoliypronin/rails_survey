@@ -16,7 +16,9 @@
 = @survey.created_at
 %br
   = button_to t('.edit'), edit_respondent_survey_path(@survey), class: 'btn btn-info', method: :get
-  = button_to t('.destroy'), respondent_survey_path(@survey), class: 'btn btn-info', method: :delete
+  - @survey.state_events.each do |event|
+    = button_to hsen(:survey, 'state', event), {:action => event.to_sym, :id => @survey.id}, method: :put, class: 'btn btn-info'
+ 
 
 = link_to t('.add_question'), new_respondent_survey_question_path(@survey), class: 'btn btn-info'
 %table.table.table-hover
