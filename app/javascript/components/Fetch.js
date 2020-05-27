@@ -23,3 +23,11 @@ export function postFetchQuestionsChoice(data){
     body: JSON.stringify(data)
   });
 }
+
+export function postFetchQuestionsOther(data){
+  return fetch(Routes.api_v1_others_path(), {
+    method: 'post',
+    headers: headers(),
+    body: JSON.stringify(data)
+  });
+}

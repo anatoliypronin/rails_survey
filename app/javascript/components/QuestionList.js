@@ -1,6 +1,6 @@
 import React from "react"
 import { Form, Button } from 'react-bootstrap';
-import { fetchQuestions, postFetchQuestionsChoice } from './Fetch';
+import { fetchQuestions, postFetchQuestionsChoice, postFetchQuestionsOther } from './Fetch';
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -30,6 +30,7 @@ class QuestionList extends React.Component {
         label={variant.title}
         value={variant.id}
         onChange={this.handleChangeRadio(q.id)}
+        required
       />
       );
     }
@@ -123,6 +124,23 @@ class QuestionList extends React.Component {
           }
         })
   }
+  sendAnswerOther(answer){
+    const data = {
+      otherField: {
+        question_id: answer.question_id,
+        title: answer.title
+      }
+    }
+    postFetchQuestionsOther(data)
+      .then( response => {
+        if (response.statusText == 'Created') {
+            console.log('success');
+          }
+        else {
+          alert(response.status + ' - ' + response.statusText);
+          }
+        })
+  }
 
   fillAnswerChecked(question_id){
     const { checkedItems } = this.state;
@@ -146,7 +164,7 @@ class QuestionList extends React.Component {
     else if (question.kind == 'check_boxes')
       this.fillAnswerChecked(question.id)
     else
-      console.log('this.otherType(q)');  
+      this.sendAnswerOther(this.state.answer)
     this.setState({
       step: step + 1,
     });
