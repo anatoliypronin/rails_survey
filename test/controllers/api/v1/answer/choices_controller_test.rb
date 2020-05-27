@@ -5,12 +5,6 @@ class Api::V1::Answer::ChoicesControllerTest < ActionDispatch::IntegrationTest
     @respondent = create :respondent
     sign_in_as_respondent(@respondent)
   end
-  
-  # test 'should get question list' do
-  #   post api_v1_answers_path()
-
-  #   assert_response :success
-  # end
 
   test 'should post create choiceField' do
     question = create :question

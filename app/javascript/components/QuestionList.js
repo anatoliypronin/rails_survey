@@ -1,6 +1,6 @@
 import React from "react"
 import { Form, Button } from 'react-bootstrap';
-
+import { fetchQuestions, postFetchQuestionsChoice } from './Fetch';
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -9,17 +9,15 @@ class QuestionList extends React.Component {
       questions: [],
       checkedItems: [],
       step: 0,
-      answer: {}
+      answer: {},
     }
   };
   componentDidMount() {
-    this.fetchQuestions();
-  }
-  fetchQuestions() {
-    return fetch(Routes.api_v1_survey_questions_path({survey_id: this.props.survey, format: 'json'}))
+    fetchQuestions(this.props.survey)
       .then(response => response.json())
-      .then(result => this.setState({questions: result}))
+      .then(result => this.setState({questions: result}));
   }
+
   radioType(q){
     let check = []
     for (let variant of q.variants) {
@@ -108,33 +106,47 @@ class QuestionList extends React.Component {
     });
   };
 
-  sendAnswer(answer){
-    console.log(answer)
+  sendAnswerChoice(answer){
+    const data = {
+      choiceField: {
+        question_id: answer.question_id,
+        variant_id: answer.variant_id
+      }
+    }
+    postFetchQuestionsChoice(data)
+      .then( response => {
+        if (response.statusText == 'Created') {
+            console.log('success');
+          }
+        else {
+          alert(response.status + ' - ' + response.statusText);
+          }
+        })
   }
 
-  sendAnswerChecked(question_id){
+  fillAnswerChecked(question_id){
     const { checkedItems } = this.state;
     for (let item of checkedItems) {
       let answer = {
           question_id: question_id,
           variant_id: item
       };
-      this.sendAnswer(answer)
+      this.sendAnswerChoice(answer)
     }
     this.setState({
       checkedItems: [],
     });
   }  
 
-  handleSubmit = (question_id) => event => {
+  handleSubmit = (question) => event => {
     event.preventDefault();
     const { step, checkedItems } = this.state;
-    if (checkedItems.length != 0) {
-      this.sendAnswerChecked(question_id)
-    }
-    else{
-      this.sendAnswer(this.state.answer)
-    }
+    if (question.kind == 'radio_buttons')
+      this.sendAnswerChoice(this.state.answer)
+    else if (question.kind == 'check_boxes')
+      this.fillAnswerChecked(question.id)
+    else
+      console.log('this.otherType(q)');  
     this.setState({
       step: step + 1,
     });
@@ -142,7 +154,7 @@ class QuestionList extends React.Component {
 
   questionSinglForm(q){
     return (
-      <Form onSubmit={this.handleSubmit(q.id)}>
+      <Form onSubmit={this.handleSubmit(q)}>
           <Form.Group controlId={`formGroup${q.id}`}>
             <Form.Label>{q.title}</Form.Label>
             {this.questionType(q)}
