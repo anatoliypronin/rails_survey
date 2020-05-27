@@ -1,10 +1,10 @@
 class Web::Respondent::ProfilesController < Web::Respondent::ApplicationController
   def show
-    @respondent = current_user 
+    @respondent = current_user
   end
 
   def edit
-    @respondent = current_user 
+    @respondent = current_user
   end
 
   def update
