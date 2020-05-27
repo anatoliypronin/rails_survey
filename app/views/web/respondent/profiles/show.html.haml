@@ -1,0 +1,5 @@
+%b= t('.name') + ":" + " #{current_user.first_name}" + " #{current_user.last_name}" 
+%br
+%b= t('.phone') + ":" + " #{current_user.phone}"
+%br
+= link_to t('.edit'), edit_respondent_profile_path(current_user)

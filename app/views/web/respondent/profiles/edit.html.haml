@@ -1,0 +1,6 @@
+= simple_form_for @respondent, url: respondent_profile_path do |f|
+  = f.input :first_name
+  = f.input :last_name
+  = f.input :phone
+  = f.button :submit, :class => 'btn btn-info'
+= link_to t('.back'), respondent_profile_path(current_user), :class => 'btn btn-info'
