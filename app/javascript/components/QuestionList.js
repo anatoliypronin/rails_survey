@@ -8,6 +8,8 @@ class QuestionList extends React.Component {
     this.state = {
       questions: [],
       checkedItems: [],
+      step: 0,
+      answer: {}
     }
   };
   componentDidMount() {
@@ -25,6 +27,7 @@ class QuestionList extends React.Component {
       <Form.Check 
         type={'radio'}
         id={`default-radio${variant.id}`}
+        key={`default-radio${variant.id}`}
         name={`formVericalRadios${q.id}`}
         label={variant.title}
         value={variant.id}
@@ -44,6 +47,7 @@ class QuestionList extends React.Component {
       <Form.Check 
         type={'checkbox'}
         id={`default-checkbox${variant.id}`}
+        key={`default-checkbox${variant.id}`}
         label={variant.title}
         value={variant.id}
         onChange={this.handleChangeCheck(q.id)}
@@ -84,10 +88,11 @@ class QuestionList extends React.Component {
     const checked = e.target.checked;
     let items = this.state.checkedItems;
     if (checked){
-    items.push(value)
+      items.push(value)
     }else{
-    const index = items.indexOf(value);
-    items.splice(index, 1);
+      const index = items.indexOf(value);
+      if (index > -1) 
+        items.splice(index, 1);
     }
     this.setState({
       checkedItems: items,
@@ -103,36 +108,72 @@ class QuestionList extends React.Component {
     });
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
-    console.log(this.state.answer);
+  sendAnswer(answer){
+    console.log(answer)
   }
 
-  questionForm(){
-    let list = []
-    let questions = this.state.questions
-    for (let q of questions) {
-      list.push(
-        <Form.Group controlId="formGroup1">
-          <Form.Label>{q.title}</Form.Label>
-          {this.questionType(q)}
-        </Form.Group>
-      );
+  sendAnswerChecked(question_id){
+    const { checkedItems } = this.state;
+    for (let item of checkedItems) {
+      let answer = {
+          question_id: question_id,
+          variant_id: item
+      };
+      this.sendAnswer(answer)
     }
+    this.setState({
+      checkedItems: [],
+    });
+  }  
+
+  handleSubmit = (question_id) => event => {
+    event.preventDefault();
+    const { step, checkedItems } = this.state;
+    if (checkedItems.length != 0) {
+      this.sendAnswerChecked(question_id)
+    }
+    else{
+      this.sendAnswer(this.state.answer)
+    }
+    this.setState({
+      step: step + 1,
+    });
+  }
+
+  questionSinglForm(q){
     return (
-      list
+      <Form onSubmit={this.handleSubmit(q.id)}>
+          <Form.Group controlId={`formGroup${q.id}`}>
+            <Form.Label>{q.title}</Form.Label>
+            {this.questionType(q)}
+          </Form.Group>
+          <Button variant="primary" type="submit"> Save
+          </Button>
+        </Form>
     );
+
+  }
+
+  switch(){
+    const { step } = this.state;
+    let questions = this.state.questions
+    const length = questions.length
+    //Check add
+    if (length != 0 && length != step){
+      return (
+        this.questionSinglForm(questions[step])
+      )
+    }
+    else if (length != 0) {
+      // window.location.href = Routes.respondent_root_path();
+    }
   }
   render () {
     return (
       <React.Fragment>
         <h1>Question Form</h1>
-        <Form onSubmit={this.handleSubmit}>
-          {this.questionForm()}
-          <Button variant="primary" type="submit">
-            Save
-          </Button>
-        </Form>
+        {this.switch()}
+        
       </React.Fragment>
     );
   }
