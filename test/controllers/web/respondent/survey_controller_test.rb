@@ -64,27 +64,12 @@ class Web::Respondent::SurveyControllerTest < ActionDispatch::IntegrationTest
     assert_equal attrs[:title], @survey.title
   end
 
-  test "should delete destroy survey" do
-    delete respondent_survey_path(@survey)
-    assert_response :redirect
-
-    assert_not Survey.exists?(@survey.id)
-  end
-
-  test "should put restore survey page" do
+  test "should del survey page" do
     put del_respondent_survey_path(@survey)
     assert_response :redirect
 
     @survey.reload
     assert_equal @survey.state, 'deleted'
-  end
-
-  test "should put del survey page" do
-    put restore_respondent_survey_path(@survey)
-    assert_response :redirect
-
-    @survey.reload
-    assert_equal @survey.state, 'active'
   end
 
   test 'should update survey with tags' do

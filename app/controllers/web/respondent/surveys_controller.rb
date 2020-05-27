@@ -36,21 +36,9 @@ class Web::Respondent::SurveysController < Web::Respondent::ApplicationControlle
     end
   end
 
-  def destroy
-    survey = Survey.find(params[:id])
-    survey.destroy
-    redirect_to action: :index
-  end
-
   def del
     survey = Survey.find(params[:id])
     survey.del
-    redirect_to action: :index
-  end
-
-  def restore
-    survey = Survey.find(params[:id])
-    survey.restore
     redirect_to action: :index
   end
 
