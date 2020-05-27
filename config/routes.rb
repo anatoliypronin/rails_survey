@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      scope module: :answer do
+        resources :choices, only: %i[create]
+        resources :others, only: %i[create]
+      end
       resources :surveys, only: %i[index show] do
         resources :questions, only: %i[index]
       end
