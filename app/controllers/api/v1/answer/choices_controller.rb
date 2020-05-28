@@ -4,9 +4,9 @@ class Api::V1::Answer::ChoicesController < Api::V1::ApplicationController
 
     respond_to do |format|
       if choice.save
-       format.json { render json: choice, status: :created, location: nil}
+        format.json { render json: choice, status: :created, location: nil }
       else
-       format.json { render json: choice.errors, status: :unprocessable_entity }
+        format.json { render json: choice.errors, status: :unprocessable_entity }
       end
     end
   end

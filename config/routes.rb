@@ -13,7 +13,6 @@ Rails.application.routes.draw do
 
   scope module: :web do
     root to: "welcome#index"
-    
     namespace :respondent do
       root to: "welcome#index"
       resource :session, only: %i[new create destroy]

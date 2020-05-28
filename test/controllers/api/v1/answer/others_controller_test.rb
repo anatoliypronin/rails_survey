@@ -9,15 +9,14 @@ class Api::V1::Answer::OthersControllerTest < ActionDispatch::IntegrationTest
   test 'should post create otherField' do
     question = create :question
     other = build :other_field
-    otherField_attributes = attributes_for(:other_field)
-    otherField_attributes = { question_id: question.id, title: other.title}
-    post api_v1_others_path(), params: { otherField: otherField_attributes, format: :json }
+    other_field_attributes = { question_id: question.id, title: other.title }
+    post api_v1_others_path, params: { otherField: other_field_attributes, format: :json }
     assert_response :created
 
     data = JSON.parse(response.body)
     created_other_field = OtherField.find(data['id'])
 
     assert created_other_field.present?
-    assert_equal otherField_attributes.stringify_keys, created_other_field.slice(*otherField_attributes.keys)
+    assert_equal other_field_attributes.stringify_keys, created_other_field.slice(*other_field_attributes.keys)
   end
 end

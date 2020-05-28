@@ -4,9 +4,9 @@ class Api::V1::Answer::OthersController < Api::V1::ApplicationController
 
     respond_to do |format|
       if other.save
-       format.json { render json: other, status: :created, location: nil}
+        format.json { render json: other, status: :created, location: nil }
       else
-       format.json { render json: other.errors, status: :unprocessable_entity }
+        format.json { render json: other.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -9,14 +9,14 @@ class Api::V1::Answer::ChoicesControllerTest < ActionDispatch::IntegrationTest
   test 'should post create choiceField' do
     question = create :question
     variant = create :variant
-    choiceField_attributes = { question_id: question.id, variant_id: variant.id}
-    post api_v1_choices_path(), params: { choiceField: choiceField_attributes, format: :json }
+    choice_field_attributes = { question_id: question.id, variant_id: variant.id }
+    post api_v1_choices_path, params: { choiceField: choice_field_attributes, format: :json }
     assert_response :created
 
     data = JSON.parse(response.body)
     created_choice_field = ChoiceField.find(data['id'])
 
     assert created_choice_field.present?
-    assert_equal choiceField_attributes.stringify_keys, created_choice_field.slice(*choiceField_attributes.keys)
+    assert_equal choice_field_attributes.stringify_keys, created_choice_field.slice(*choice_field_attributes.keys)
   end
 end
