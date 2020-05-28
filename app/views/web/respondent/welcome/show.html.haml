@@ -1,0 +1,17 @@
+%h1= t('.show') + " #{@survey.title}"
+
+%table.table.table-hover
+  %tr
+    %th= han(:question,:id)
+    %th= han(:question,:title)
+    %th= han(:question,:kind)
+    %th= han(:question,:survey)
+    %th= t('.control')
+  - @survey.questions.each do |question|
+    %tr
+      %td= question.id
+      %td= question.title
+      %td= question.kind_text
+      %td= question.survey.title
+
+= link_to t('.back'), respondent_root_path, class: 'btn btn-primary btn-sm'
