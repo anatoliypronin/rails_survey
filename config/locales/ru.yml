@@ -137,6 +137,10 @@ ru:
       welcome:
           index:
             public_surveys: Публичные опросы
+            control: Управление
+            show: Просмотр
+          show:
+            show: Просмотр
       sessions: 
         new:
           sign_in: Войти
