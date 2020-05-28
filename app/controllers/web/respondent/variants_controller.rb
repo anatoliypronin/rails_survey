@@ -5,6 +5,11 @@ class Web::Respondent::VariantsController < Web::Respondent::ApplicationControll
 
   def new
     @variant = Variant.new
+    @question = Question.find(params[:question_id])
+
+    if @question.kind == 'input'
+      redirect_back fallback_location: respondent_surveys_path
+    end
   end
 
   def show
