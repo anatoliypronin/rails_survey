@@ -16,7 +16,7 @@ class QuestionList extends React.Component {
     }
   };
   componentDidMount() {
-    fetchQuestions(this.props.survey)
+    fetchQuestions(this.props.survey.id)
       .then(response => response.json())
       .then(result => this.setState({questions: result}));
   }
@@ -209,8 +209,8 @@ class QuestionList extends React.Component {
         <Container>
           <Row>
             <Col></Col>
-            <Col>
-              <h1>Question Form</h1>
+            <Col xs={5}>
+              <h1>{this.props.survey.title}</h1>
               {this.switch()}
             </Col>
             <Col></Col>
