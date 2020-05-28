@@ -7,9 +7,7 @@ class Web::Respondent::VariantsController < Web::Respondent::ApplicationControll
     @variant = Variant.new
     @question = Question.find(params[:question_id])
 
-    if @question.kind == 'input'
-      redirect_back fallback_location: respondent_surveys_path
-    end
+    redirect_back fallback_location: respondent_surveys_path if @question.kind == 'input'
   end
 
   def show
