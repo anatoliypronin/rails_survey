@@ -22,6 +22,7 @@ ru:
     variants: Варианты
     tags: Теги
     my_surveys: Мои опросы
+    profile: Профиль
 
   web:
     admin:
@@ -102,6 +103,11 @@ ru:
           destroy: Удалить
           edit: Изменить
           control: Управление
+      profiles:
+        show:
+          name: Имя
+          phone: Телефон
+          edit: Редактировать
 
       variants:
         index:
