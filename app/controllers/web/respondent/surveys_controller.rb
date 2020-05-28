@@ -23,7 +23,7 @@ class Web::Respondent::SurveysController < Web::Respondent::ApplicationControlle
   end
 
   def edit
-    @survey = Survey.find(params[:id])
+    @survey = Survey.where(user_id: current_user).find(params[:id])
   end
 
   def update
