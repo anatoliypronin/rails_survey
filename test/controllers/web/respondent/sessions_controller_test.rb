@@ -6,6 +6,13 @@ class Web::Respondent::SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test 'should get new respondent session page with session' do
+    respondent = create :respondent
+    sign_in_as_respondent(respondent)
+    get new_respondent_session_path
+    assert_response :redirect
+  end
+
   test 'should post create session for respondent' do
     respondent = create :respondent
     sign_in_as_respondent(respondent)
