@@ -18,6 +18,17 @@ Rails.application.routes.draw do
       resource :session, only: %i[new create destroy]
       resources :surveys do
         resources :answers, only: %i[new create]
+      resource :profile, only: %i[show edit update]
+
+      resources :surveys, only: %i[index new create show edit update destroy], shallow: true do
+        resources :questions, only: %i[index new create destroy show], shallow: true do
+          resources :variants, only: %i[index new create destroy edit update show]
+        end
+
+        member do
+          put :del
+          put :restore
+        end
       end
     end
 
