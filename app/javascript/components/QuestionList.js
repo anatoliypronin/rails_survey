@@ -1,6 +1,9 @@
 import React from "react"
 import { Form, Button } from 'react-bootstrap';
 import { fetchQuestions, postFetchQuestionsChoice, postFetchQuestionsOther } from './Fetch';
+import Container from 'react-bootstrap/Container'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class QuestionList extends React.Component {
   constructor(props) {
@@ -23,6 +26,7 @@ class QuestionList extends React.Component {
     for (let variant of q.variants) {
       check.push(
       <Form.Check 
+        custom
         type={'radio'}
         id={`default-radio${variant.id}`}
         key={`default-radio${variant.id}`}
@@ -44,6 +48,7 @@ class QuestionList extends React.Component {
     for (let variant of q.variants) {
       check.push(
       <Form.Check 
+        custom
         type={'checkbox'}
         id={`default-checkbox${variant.id}`}
         key={`default-checkbox${variant.id}`}
@@ -60,7 +65,7 @@ class QuestionList extends React.Component {
 
   otherType(q){
     return (
-      <Form.Control type="text" onChange={this.handleChangeInput(q.id)} />
+      <Form.Control type="text" onChange={this.handleChangeInput(q.id)} required/>
     );
   }
 
@@ -120,7 +125,7 @@ class QuestionList extends React.Component {
             console.log('success');
           }
         else {
-          alert(response.status + ' - ' + response.statusText);
+          console.log(response.status + ' - ' + response.statusText);
           }
         })
   }
@@ -137,7 +142,7 @@ class QuestionList extends React.Component {
             console.log('success');
           }
         else {
-          alert(response.status + ' - ' + response.statusText);
+          console.log(response.status + ' - ' + response.statusText);
           }
         })
   }
@@ -173,13 +178,13 @@ class QuestionList extends React.Component {
   questionSinglForm(q){
     return (
       <Form onSubmit={this.handleSubmit(q)}>
-          <Form.Group controlId={`formGroup${q.id}`}>
-            <Form.Label>{q.title}</Form.Label>
-            {this.questionType(q)}
-          </Form.Group>
-          <Button variant="primary" type="submit"> Save
-          </Button>
-        </Form>
+        <Form.Group controlId={`formGroups${q.id}`}>
+          <Form.Label>{q.title}</Form.Label>
+          {this.questionType(q)}
+        </Form.Group>
+        <Button variant="primary" type="submit"> Save
+        </Button>
+      </Form>
     );
 
   }
@@ -201,9 +206,16 @@ class QuestionList extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <h1>Question Form</h1>
-        {this.switch()}
-        
+        <Container>
+          <Row>
+            <Col></Col>
+            <Col>
+              <h1>Question Form</h1>
+              {this.switch()}
+            </Col>
+            <Col></Col>
+          </Row>
+        </Container>
       </React.Fragment>
     );
   }
