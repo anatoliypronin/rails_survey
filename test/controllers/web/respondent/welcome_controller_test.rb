@@ -11,10 +11,9 @@ class Web::Respondent::WelcomeControllerTest < ActionDispatch::IntegrationTest
     get respondent_root_path
     assert_response :success
   end
-  
+
   test "should show survey" do
     get respondent_welcome_path(@survey)
     assert_response :success
   end
-
 end
