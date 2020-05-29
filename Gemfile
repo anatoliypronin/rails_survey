@@ -24,6 +24,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootstrap', '~> 4.4.1'
 gem 'coveralls', require: false
+gem 'curb'
 gem 'draper'
 gem 'email_validator'
 gem 'enumerize'
@@ -35,7 +36,7 @@ gem 'react-rails'
 gem 'russian', "~> 0.6.0"
 gem 'simple_form'
 gem 'state_machines-activerecord'
-
+gem 'virtus'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
