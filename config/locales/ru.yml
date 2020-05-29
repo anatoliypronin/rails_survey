@@ -22,6 +22,7 @@ ru:
     variants: Варианты
     tags: Теги
     my_surveys: Мои опросы
+    profile: Профиль
 
   web:
     admin:
@@ -91,6 +92,48 @@ ru:
           public_surveys: Публичные опросы
 
     respondent:
+      questions:
+        index:
+          control: Управление
+          delete: Удалить
+          add_question: Добавить Вопрос
+        show:
+          add_variant: Добавить вариант
+          show: Просмотр
+          destroy: Удалить
+          edit: Изменить
+          control: Управление
+      profiles:
+        show:
+          name: Имя
+          phone: Телефон
+          edit: Редактировать
+
+      variants:
+        index:
+          control: Управление
+          question: Вопрос
+          edit: Изменить
+          delete: Удалить
+          add_variant: Добавить вариант
+
+      surveys:
+        index:
+          add_survey: Добавить Опрос
+          control: Управление
+          show: Просмотр
+        show:
+          control: Управление
+          add_question: Добавить вопрос
+          show: Просмотр
+          edit: Редактировать
+          back: Назад
+          destroy: Удалить
+          public: Опубликован
+          user: Автор
+          state: Состояние
+          tags: Тэги
+          created_at: Дата создания
       welcome:
           index:
             public_surveys: Публичные опросы
