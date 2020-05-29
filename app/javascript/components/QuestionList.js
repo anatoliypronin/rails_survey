@@ -200,7 +200,7 @@ class QuestionList extends React.Component {
       )
     }
     else if (length != 0) {
-      // window.location.href = Routes.respondent_root_path();
+      window.location.href = Routes.respondent_welcome_path(this.props.survey.id);
     }
   }
   render () {
