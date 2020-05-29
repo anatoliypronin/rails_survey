@@ -10,7 +10,7 @@ ru:
     false: Нет
 
   header:
-    homepage: Лучшие опросы
+    homepage: Лучшие опросы™
     log_in_respondent: Вход респондента
     log_in_admin: Вход админа
     admin_title: Админка анкетирования
@@ -137,6 +137,10 @@ ru:
       welcome:
           index:
             public_surveys: Публичные опросы
+            control: Управление
+            show: Просмотр
+          show:
+            show: Просмотр
       sessions: 
         new:
           sign_in: Войти

@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     root to: "welcome#index"
     namespace :respondent do
       root to: "welcome#index"
+      resources :welcome, only: %i[index show]
       resource :session, only: %i[new create destroy]
       resource :profile, only: %i[show edit update]
 

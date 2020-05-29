@@ -1,0 +1,19 @@
+%b= t('.show') + " #{@question.title}"
+
+%table.table.table-hover
+  %tr
+    %th{width: '80%'}= han(:variant, :title)
+    %th{width: '20%'}= t('.control')
+    %br
+    - if @question.kind != 'input'
+      =link_to t('.add_variant'), new_respondent_question_variant_path(@question), class: 'btn btn-info'
+
+  - @question.variants.each do |variant|
+    %tr
+      %td= variant.title
+      %td
+        = link_to t('.edit'), edit_respondent_variant_path(variant), class: 'btn btn-info'
+        %br
+        = button_to t('.destroy'), respondent_variant_path(variant), method: :delete, class: 'btn btn-info'
+
+= link_to t('.back'), respondent_survey_path(@question.survey_id)
