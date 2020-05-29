@@ -3,6 +3,6 @@ FactoryBot.define do
     survey
     title
     position
-    kind { "check_box" }
+    kind { "check_boxes" }
   end
 end
