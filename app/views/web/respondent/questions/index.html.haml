@@ -1,3 +1,5 @@
+= link_to t('.add_question'), new_respondent_survey_question_path, class: 'btn btn-info'
+
 %table.table.table-hover
   %tr
     %th= han(:question,:id)
@@ -12,9 +14,6 @@
       %td= question.title
       %td= question.position
       %td= question.kind_text
-      %td= link_to question.survey.title, admin_survey_path(question.survey_id)
-      %td 
-        = link_to t('.show'), admin_question_path(question.id), class: 'btn btn-info'
-        %br
-        = button_to t('.destroy'), admin_question_path(question.id), method: :delete, class: 'btn btn-info'
+      %td= question.survey.title
+      %td= button_to t('.delete'), respondent_survey_questions_path(question.id), method: :delete, class: 'btn btn-info'
 

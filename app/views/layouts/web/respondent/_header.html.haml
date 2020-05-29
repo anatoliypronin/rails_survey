@@ -3,6 +3,8 @@
   %div.collapse.navbar-collapse
     %ul.navbar-nav.mr-auto
       %li.nav-item.active
+        = link_to t('header.my_surveys'), respondent_surveys_path, class: 'nav-link'
+      %li.nav-item.active
         = link_to t('header.profile'), respondent_profile_path, class: 'nav-link'
 
     - if current_user

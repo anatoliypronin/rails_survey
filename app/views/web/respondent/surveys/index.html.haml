@@ -1,0 +1,24 @@
+= link_to t('.add_survey'), new_respondent_survey_path, class: 'btn btn-info'
+
+%table.table.table-hover
+  %tr
+    %th= han(:survey,:id)
+    %th= han(:survey,:title)
+    %th= han(:survey,:public)
+    %th= han(:survey,:tags)
+    %th= han(:survey,:state)
+    %th= han(:survey,:created_at)
+    %th= t('.control')
+  - @surveys.each do |survey|
+    %tr
+      %td= link_to survey.id, respondent_survey_path(survey.id), target: :_blank
+      %td= survey.title
+      %td= survey.public
+      %td= survey.tags.map(&:title).join(', ')
+      %td= hsn(:survey, 'state', survey.state)
+      %td= survey.created_at
+      %td
+        - survey.state_events.each do |event|
+          = link_to t('.show'), respondent_survey_path(survey.id) , class: 'btn btn-info'
+          %br
+          = button_to hsen(:survey, 'state', event), {:action => event.to_sym, :id => survey.id}, method: :put, class: 'btn btn-info'

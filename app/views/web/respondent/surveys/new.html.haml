@@ -1,0 +1,6 @@
+= simple_form_for @survey, url: respondent_surveys_path do |f|
+    = f.input :title
+    = f.input :public, as: :boolean
+    = f.association :tags, as: :check_boxes
+    = f.button :submit, class: 'btn btn-info'
+
