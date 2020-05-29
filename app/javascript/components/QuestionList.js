@@ -65,7 +65,7 @@ class QuestionList extends React.Component {
 
   otherType(q){
     return (
-      <Form.Control type="text" onChange={this.handleChangeInput(q.id)} required/>
+      <Form.Control type="text" onChange={this.handleChangeInput(q.id)} key={`input${q.id}`} required/>
     );
   }
 
