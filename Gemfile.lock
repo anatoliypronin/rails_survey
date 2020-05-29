@@ -110,6 +110,7 @@ GEM
       thor (>= 0.19.4, < 2.0)
       tins (~> 1.6)
     crass (1.0.6)
+    curb (0.9.10)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     docile (1.3.2)
@@ -350,6 +351,7 @@ DEPENDENCIES
   byebug
   capybara (>= 2.15)
   coveralls
+  curb
   draper
   email_validator
   enumerize
