@@ -12,6 +12,7 @@ class SurveysList extends React.Component {
       addPopupShow: false,
       survey: {
         questions: [],
+        id: null,
       }
     }
   };
@@ -88,6 +89,7 @@ class SurveysList extends React.Component {
         show = {this.state.addPopupShow}
         onClose={this.handleAddClose}
         questions ={this.state.survey.questions}
+        surveyId = {this.state.survey.id}
       />
       </React.Fragment>
     );

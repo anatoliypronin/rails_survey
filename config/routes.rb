@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
+      scope module: :answer do
+        resources :choices, only: %i[create]
+        resources :others, only: %i[create]
+      end
       resources :surveys, only: %i[index show] do
         resources :questions, only: %i[index]
       end
@@ -19,6 +23,7 @@ Rails.application.routes.draw do
       resource :profile, only: %i[show edit update]
 
       resources :surveys, only: %i[index new create show edit update destroy], shallow: true do
+        resources :answers, only: %i[new create]
         resources :questions, only: %i[index new create destroy show], shallow: true do
           resources :variants, only: %i[index new create destroy edit update show]
         end

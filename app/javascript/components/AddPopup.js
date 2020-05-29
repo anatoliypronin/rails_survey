@@ -14,6 +14,9 @@ export default class AddPopup extends React.Component {
       list
     );
   }
+  linkOnSurvey(SurveyId){
+    window.location.href = Routes.new_respondent_survey_answer_path(SurveyId)
+  }
 
   render () {
     return <div>
@@ -32,7 +35,7 @@ export default class AddPopup extends React.Component {
 
         <Modal.Footer>
           <Button onClick={this.props.onClose}>Close</Button>
-          <Button>Go</Button>
+          <Button onClick={() => this.linkOnSurvey(this.props.surveyId)}>Go</Button>
         </Modal.Footer>
       </Modal>
     </div>

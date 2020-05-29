@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class Web::Respondent::SessionsControllerTest < ActionDispatch::IntegrationTest
+class Web::Respondent::ProfileControllerTest < ActionDispatch::IntegrationTest
   setup do
     respondent = create :respondent
     sign_in_as_respondent(respondent)

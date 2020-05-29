@@ -1,6 +1,7 @@
 FactoryBot.define do
-  factory :choice_field do
+  factory :answer do
     question
+    title
     variant
   end
 end

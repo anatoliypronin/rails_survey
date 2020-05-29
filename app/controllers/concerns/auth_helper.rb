@@ -24,6 +24,7 @@ module AuthHelper
   end
 
   def authenticate_respondent!
+    session[:url] = request.env['PATH_INFO']
     redirect_to new_respondent_session_path unless respondent_signed_in?
   end
 end

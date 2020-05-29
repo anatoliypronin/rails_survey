@@ -13,5 +13,7 @@
       %td= survey.user.full_name
       %td= hsn(:survey, 'state', survey.state)
       %td= survey.created_at
-      %td= link_to t('.show'), respondent_welcome_path(survey.id)
+      %td
+        = link_to t('.go'), new_respondent_survey_answer_path(survey.id), class: 'btn btn-primary'
+        = link_to t('.show'), respondent_welcome_path(survey.id), class: 'btn btn-success'
 
