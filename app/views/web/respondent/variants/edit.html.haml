@@ -1,0 +1,4 @@
+= simple_form_for @variant, url: respondent_variant_path(@variant.id) do |f|
+  = f.input :title
+  = f.button :submit, class: 'btn btn-info'
+= link_to t('.back'), respondent_variant_path(@variant), class: 'btn btn-info'

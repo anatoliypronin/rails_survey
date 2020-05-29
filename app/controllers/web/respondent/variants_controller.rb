@@ -1,4 +1,4 @@
-class Web::Admin::VariantsController < Web::Admin::ApplicationController
+class Web::Respondent::VariantsController < Web::Respondent::ApplicationController
   def index
     @variants = Variant.all
   end
@@ -7,7 +7,7 @@ class Web::Admin::VariantsController < Web::Admin::ApplicationController
     @variant = Variant.new
     @question = Question.find(params[:question_id])
 
-    redirect_back fallback_location: admin_surveys_path if @question.kind == 'input'
+    redirect_back fallback_location: respondent_surveys_path if @question.kind == 'input'
   end
 
   def show
@@ -21,7 +21,7 @@ class Web::Admin::VariantsController < Web::Admin::ApplicationController
     @variant.question = @question if @question
 
     if @variant.save
-      redirect_to admin_question_path(@question)
+      redirect_to respondent_question_path(@question)
     else
       render action: :new
     end
@@ -35,7 +35,7 @@ class Web::Admin::VariantsController < Web::Admin::ApplicationController
     @variant = Variant.find(params[:id])
 
     if @variant.update(variant_attrs)
-      redirect_to admin_question_path(@variant.question_id)
+      redirect_to respondent_question_path(@variant.question_id)
     else
       render action: :edit
     end
@@ -45,7 +45,7 @@ class Web::Admin::VariantsController < Web::Admin::ApplicationController
     @variant = Variant.find(params[:id])
     @variant.destroy
 
-    redirect_to admin_question_path(@variant.question_id)
+    redirect_to respondent_question_path(@variant.question_id)
   end
 
   private

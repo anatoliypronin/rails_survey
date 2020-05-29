@@ -6,10 +6,12 @@
     %th= han(:survey,:user)
     %th= han(:survey,:state)
     %th= han(:survey,:created_at)
+    %th= t('.control')
   - @surveys.each do |survey|
     %tr
       %td= survey.title
       %td= survey.user.full_name
       %td= hsn(:survey, 'state', survey.state)
       %td= survey.created_at
+      %td= link_to t('.show'), respondent_welcome_path(survey.id)
 
